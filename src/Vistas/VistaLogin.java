@@ -7,6 +7,7 @@ package Vistas;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -72,7 +73,11 @@ public class VistaLogin extends JFrame{
         lblJugar.setBounds(280,450,240,80);
         lblBeneficios.setBounds(530,450,240,80);
         lblCerrar.setBounds(930,10,240,80);
-
+        
+        lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblBeneficios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblComoJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         
         /* Se agregan labels al contenido general */
         
@@ -81,19 +86,27 @@ public class VistaLogin extends JFrame{
         jpContenidoGeneral.add(lblJugar);
         jpContenidoGeneral.add(lblBeneficios);
         jpContenidoGeneral.add(lblTitle);
-        
+
     }
     
-    public void addLblJugarMouseListener(MouseListener listenControles){
+    public void addLblJugarMouseListener(MouseAdapter listenControles){
         lblJugar.addMouseListener(listenControles);
     }
     
-    public void addLblBeneficiosMouseListener(MouseListener listenControles){
+    public void addLblBeneficiosMouseListener(MouseAdapter listenControles){
         lblBeneficios.addMouseListener(listenControles);
     }
     
-    public void addLblComoJugarMouseListener(MouseListener listenControles){
+    public void addLblComoJugarMouseListener(MouseAdapter listenControles){
         lblComoJugar.addMouseListener(listenControles);
+    }
+    
+    public void addLblCerrarMouseListener(MouseAdapter listenControles){
+        lblCerrar.addMouseListener(listenControles);
+    }
+    
+    public JLabel getLblCerrar(){
+        return lblCerrar;
     }
     
 }
