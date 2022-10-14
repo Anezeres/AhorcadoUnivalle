@@ -7,6 +7,7 @@ package Vistas;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -25,6 +26,7 @@ public class VistaLogin extends JFrame{
     private JLabel lblComoJugar;
     private JLabel lblJugar;
     private JLabel lblBeneficios;
+    private JLabel lblCerrar;
     
     private JPanel jpContenidoGeneral;
 
@@ -32,11 +34,12 @@ public class VistaLogin extends JFrame{
     }
     
     public void configurarVistaLogin(){
+        setUndecorated(true);
         setVisible(true);
         setSize(1024,640);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Ahorcado 3000");
+        setTitle("Ahorcado 3000");      
     }
     
     public void iniciarComponentes(){
@@ -50,6 +53,7 @@ public class VistaLogin extends JFrame{
         Icon imagenComoJugar = new ImageIcon("src\\Imagenes\\01-ComoJugar-img.gif");
         Icon imagenJugar = new ImageIcon("src\\Imagenes\\02-Jugar-img.gif");
         Icon imagenBeneficios = new ImageIcon("src\\Imagenes\\03-Beneficios-img.gif");
+        Icon imagenCerrar = new ImageIcon("src\\Imagenes\\04-Cerrar-img.gif");
         
         /* Inicializacion de imagenes */
         
@@ -57,36 +61,41 @@ public class VistaLogin extends JFrame{
         lblComoJugar = new JLabel(imagenComoJugar);
         lblJugar = new JLabel(imagenJugar);
         lblBeneficios = new JLabel(imagenBeneficios);
+        lblCerrar = new JLabel(imagenCerrar);
         
         
         /* Configuración imagenes */
         
         
         lblTitle.setBounds(0,0,1024,640);
-        lblComoJugar.setBounds(30,400,240,80);
-        lblJugar.setBounds(280,400,240,80);
-        lblBeneficios.setBounds(530,400,240,80);
+        lblComoJugar.setBounds(30,450,240,80);
+        lblJugar.setBounds(280,450,240,80);
+        lblBeneficios.setBounds(530,450,240,80);
+        lblCerrar.setBounds(930,10,240,80);
 
         
         /* Se agregan labels al contenido general */
         
         jpContenidoGeneral.add(lblComoJugar);
+        jpContenidoGeneral.add(lblCerrar);
         jpContenidoGeneral.add(lblJugar);
         jpContenidoGeneral.add(lblBeneficios);
         jpContenidoGeneral.add(lblTitle);
         
     }
     
-    //1024,640
-    
-    public class ManejadorEventosLogin implements ActionListener{
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-        }
-    
+    public void addLblJugarMouseListener(MouseListener listenControles){
+        lblJugar.addMouseListener(listenControles);
     }
+    
+    public void addLblBeneficiosMouseListener(MouseListener listenControles){
+        lblBeneficios.addMouseListener(listenControles);
+    }
+    
+    public void addLblComoJugarMouseListener(MouseListener listenControles){
+        lblComoJugar.addMouseListener(listenControles);
+    }
+    
 }
 
 
