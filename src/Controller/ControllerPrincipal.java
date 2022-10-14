@@ -6,6 +6,7 @@ package Controller;
 
 import Modelo.ModeloPrincipal;
 import Vistas.VistaLogin;
+import Vistas.VistaSeleccionarTema;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
@@ -22,30 +23,40 @@ public class ControllerPrincipal {
         this.modelo = modelo;
         this.vista = vista;
         
-        vista.iniciarComponentes();
+        vista.iniciarComponentesLogin();
         vista.configurarVistaLogin();
         
         
-        vista.addLblCerrarMouseListener(new MouseListenerController());
+        agregarControllers();
+          
+    }
+    
+    public void agregarControllers(){
         
+        MouseListenerController controllerMouse = new MouseListenerController();
         
+        vista.addLblCerrarMouseListener(controllerMouse);
+        vista.addLblJugarMouseListener(controllerMouse);
     }
     
     public class MouseListenerController extends MouseAdapter{
         
         @Override
-        public void mouseClicked(MouseEvent arg0){
-            if (arg0.getSource() == vista.getLblCerrar()){
+        public void mouseClicked(MouseEvent event){
+            
+            if (event.getSource() == vista.getLblCerrar()){
                 if (JOptionPane.showConfirmDialog(null, "¿Seguro que quieres salir?", "Mensaje", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-             vista.dispose();
-
-            }
+                    vista.dispose();
+             
+                }
+            }else if(event.getSource() == vista.getJugar()){
+                vista.dispose();
+                VistaSeleccionarTema vistaTema = new VistaSeleccionarTema();
+                ControllerSeleccionarTema controllerTema = new ControllerSeleccionarTema(modelo,vistaTema);
            }
             
         }
-
-
-      
+   
     }
     
     

@@ -40,10 +40,9 @@ public class VistaLogin extends JFrame{
         setSize(1024,640);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Ahorcado 3000");      
     }
     
-    public void iniciarComponentes(){
+    public void iniciarComponentesLogin(){
         jpContenidoGeneral = new JPanel();
         jpContenidoGeneral.setBounds(0,0,1024,640);
         jpContenidoGeneral.setLayout(null);
@@ -105,8 +104,14 @@ public class VistaLogin extends JFrame{
         lblCerrar.addMouseListener(listenControles);
     }
     
+    /* Getters and Setters */
+    
     public JLabel getLblCerrar(){
         return lblCerrar;
+    }
+    
+    public JLabel getJugar(){
+        return lblJugar;
     }
     
 }
