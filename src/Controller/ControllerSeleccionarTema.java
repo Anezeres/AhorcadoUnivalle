@@ -5,6 +5,7 @@
 package Controller;
 
 import Modelo.ModeloPrincipal;
+import Vistas.VistaLogin;
 import Vistas.VistaSeleccionarTema;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -34,9 +35,11 @@ public class ControllerSeleccionarTema {
         MouseListenerController controllerMouse = new MouseListenerController();
         
         vistaTema.addLblCerrarMouseListener(controllerMouse);
+        vistaTema.addLblVolverMouseListener(controllerMouse);
         vistaTema.addLblAnimalesMouseListener(controllerMouse);
         vistaTema.addLblColoresMouseListener(controllerMouse);
         vistaTema.addLblFrutasMouseListener(controllerMouse);
+        
     }
     
     
@@ -60,6 +63,11 @@ public class ControllerSeleccionarTema {
                 vistaTema.setColoresActivo(false);
                 vistaTema.setFrutasActivo(false);
                 
+                if(!"".equals(vistaTema.getNombre())){
+                    vistaTema.agregarLblIniciar();
+                    vistaTema.addLblIniciarMouseListener(this);
+                }
+                
             }else if(event.getSource() == vistaTema.getLblColores()){
                 vistaTema.cambiarColoresActivo();
                 vistaTema.setColoresActivo(true);
@@ -70,6 +78,11 @@ public class ControllerSeleccionarTema {
                 vistaTema.setAnimalesActivo(false);
                 vistaTema.setFrutasActivo(false);
                 
+                if(!"".equals(vistaTema.getNombre())){
+                    vistaTema.agregarLblIniciar();
+                    vistaTema.addLblIniciarMouseListener(this);
+                }
+                
             }else if(event.getSource() == vistaTema.getLblFrutas()){
                 vistaTema.cambiarFrutasActivo();
                 vistaTema.setFrutasActivo(true);
@@ -79,7 +92,22 @@ public class ControllerSeleccionarTema {
                 
                 vistaTema.setAnimalesActivo(false);
                 vistaTema.setColoresActivo(false);
+                
+                if(!"".equals(vistaTema.getNombre())){
+                    vistaTema.agregarLblIniciar();
+                    vistaTema.addLblIniciarMouseListener(this);
+                }
+            }else if(event.getSource() == vistaTema.getLblIniciar()){
+                if("".equals(vistaTema.getNombre())){
+                    vistaTema.eliminarLblIniciar();
+                }
+            }else if(event.getSource() == vistaTema.getLblVolver()){
+                vistaTema.dispose();
+                VistaLogin vista = new VistaLogin();
+                ControllerPrincipal controller = new ControllerPrincipal(modelo, vista);
             }
+            
+            
             
         }
         

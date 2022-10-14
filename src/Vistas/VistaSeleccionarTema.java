@@ -12,6 +12,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -29,11 +30,13 @@ public class VistaSeleccionarTema extends JFrame{
     private JLabel lblFrutas;
     private JLabel lblColores;
     private JLabel lblCerrar;
+    private JLabel lblVolver;
     private JLabel lblIniciar;
     
     private JTextField txtNombre;
     
     private JPanel jpContenidoGeneral;
+    private JLayeredPane nuevoPane;
     
     private boolean animalesActivo = false;
     private boolean coloresActivo = false;
@@ -64,10 +67,12 @@ public class VistaSeleccionarTema extends JFrame{
         Icon imagenFrutas = new ImageIcon("src\\Imagenes\\09-Frutas-img.gif");
         Icon imagenIniciar = new ImageIcon("src\\Imagenes\\11-Iniciar-img.gif");
         Icon imagenTema = new ImageIcon("src\\Imagenes\\12-SeleccionarTema-img.gif");
+        Icon imagenVolver = new ImageIcon("src\\Imagenes\\13-Volver-img.gif");
         
         /* Inicializacion de imagenes */
         
         lblCerrar = new JLabel(imagenCerrar);
+        lblVolver = new JLabel(imagenVolver);
         lblAnimales = new JLabel(imagenAnimales);
         lblColores = new JLabel(imagenColores);
         lblFrutas = new JLabel(imagenFrutas);
@@ -83,9 +88,11 @@ public class VistaSeleccionarTema extends JFrame{
         lblColores.setBounds(520,400,240,80);
         lblFrutas.setBounds(760, 400, 240, 80);
         lblCerrar.setBounds(930,10,240,80);
+        lblVolver.setBounds(-150,10,240,80);
         
         
         lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAnimales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblFrutas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblColores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -104,6 +111,7 @@ public class VistaSeleccionarTema extends JFrame{
         
         jpContenidoGeneral.add(txtNombre);
         jpContenidoGeneral.add(lblCerrar);
+        jpContenidoGeneral.add(lblVolver);
         jpContenidoGeneral.add(lblAnimales);
         jpContenidoGeneral.add(lblColores);
         jpContenidoGeneral.add(lblFrutas);
@@ -145,9 +153,14 @@ public class VistaSeleccionarTema extends JFrame{
     public void agregarLblIniciar(){
         Icon imagenIniciar = new ImageIcon("src\\Imagenes\\11-Iniciar-img.gif");
         lblIniciar = new JLabel(imagenIniciar);
-        lblIniciar.setBounds(520,500,240,80);
-        jpContenidoGeneral.add(lblIniciar);
-        
+        lblIniciar.setBounds(760,530,240,80);
+        lblIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jpContenidoGeneral.add(lblIniciar,20, 4);  
+    }
+    
+    public void eliminarLblIniciar(){
+        System.out.println("Hola");
+        lblIniciar.setIcon(null);
     }
     
     public String getNombre(){
@@ -159,6 +172,10 @@ public class VistaSeleccionarTema extends JFrame{
     
     public void addLblCerrarMouseListener(MouseAdapter listenControles){
         lblCerrar.addMouseListener(listenControles);
+    }
+    
+    public void addLblVolverMouseListener(MouseAdapter listenControles){
+        lblVolver.addMouseListener(listenControles);
     }
     
     public void addLblAnimalesMouseListener(MouseAdapter listenControles){
@@ -173,12 +190,20 @@ public class VistaSeleccionarTema extends JFrame{
         lblColores.addMouseListener(listenControles);
     }
     
+    public void addLblIniciarMouseListener(MouseAdapter listenControles){
+        lblIniciar.addMouseListener(listenControles);
+    }
+    
     /* Getters and Setters */
     
     public JLabel getLblCerrar(){
         return lblCerrar;
     }
-    
+
+    public JLabel getLblVolver() {
+        return lblVolver;
+    }
+
     public JLabel getLblAnimales(){
         return lblAnimales;
     }
@@ -189,6 +214,10 @@ public class VistaSeleccionarTema extends JFrame{
     
     public JLabel getLblFrutas(){
         return lblFrutas;
+    }
+    
+    public JLabel getLblIniciar(){
+        return lblIniciar;
     }
 
     public boolean isAnimalesActivo() {
