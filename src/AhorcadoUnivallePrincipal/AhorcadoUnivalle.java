@@ -4,6 +4,10 @@
  */
 package AhorcadoUnivallePrincipal;
 
+import Controller.ControllerPrincipal;
+import Modelo.ModeloPrincipal;
+import Vistas.VistaLogin;
+
 /**
  *
  * @author RYZEN
@@ -14,7 +18,12 @@ public class AhorcadoUnivalle {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        VistaLogin vista = new VistaLogin();
+        ModeloPrincipal modelo = new ModeloPrincipal();
+        
+        ControllerPrincipal controller = new ControllerPrincipal(modelo, vista);
+        
+        
     }
     
 }
