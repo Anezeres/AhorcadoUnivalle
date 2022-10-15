@@ -64,8 +64,12 @@ public class ControllerSeleccionarTema {
                 vistaTema.setFrutasActivo(false);
                 
                 if(!"".equals(vistaTema.getNombre())){
-                    vistaTema.agregarLblIniciar();
+                    vistaTema.agregarLblIniciar();             
                     vistaTema.addLblIniciarMouseListener(this);
+                    vistaTema.eliminarLblIngresarNombre();
+                }else{
+                    vistaTema.agregarLblIngresarNombre();
+                    vistaTema.eliminarLblIniciar();
                 }
                 
             }else if(event.getSource() == vistaTema.getLblColores()){
@@ -81,6 +85,10 @@ public class ControllerSeleccionarTema {
                 if(!"".equals(vistaTema.getNombre())){
                     vistaTema.agregarLblIniciar();
                     vistaTema.addLblIniciarMouseListener(this);
+                    vistaTema.eliminarLblIngresarNombre();             
+                }else{
+                    vistaTema.agregarLblIngresarNombre();
+                    vistaTema.eliminarLblIniciar();
                 }
                 
             }else if(event.getSource() == vistaTema.getLblFrutas()){
@@ -96,11 +104,17 @@ public class ControllerSeleccionarTema {
                 if(!"".equals(vistaTema.getNombre())){
                     vistaTema.agregarLblIniciar();
                     vistaTema.addLblIniciarMouseListener(this);
+                    vistaTema.eliminarLblIngresarNombre();
+                }else{
+                    vistaTema.agregarLblIngresarNombre();
+                    vistaTema.eliminarLblIniciar();
                 }
             }else if(event.getSource() == vistaTema.getLblIniciar()){
+                
                 if("".equals(vistaTema.getNombre())){
                     vistaTema.eliminarLblIniciar();
                 }
+                
             }else if(event.getSource() == vistaTema.getLblVolver()){
                 vistaTema.dispose();
                 VistaLogin vista = new VistaLogin();

@@ -32,6 +32,7 @@ public class VistaSeleccionarTema extends JFrame{
     private JLabel lblCerrar;
     private JLabel lblVolver;
     private JLabel lblIniciar;
+    private JLabel lblIngresaNombre;
     
     private JTextField txtNombre;
     
@@ -65,7 +66,7 @@ public class VistaSeleccionarTema extends JFrame{
         Icon imagenAnimales = new ImageIcon("src\\Imagenes\\05-Animales-img.gif");
         Icon imagenColores = new ImageIcon("src\\Imagenes\\07-Colores-img.gif");
         Icon imagenFrutas = new ImageIcon("src\\Imagenes\\09-Frutas-img.gif");
-        Icon imagenIniciar = new ImageIcon("src\\Imagenes\\11-Iniciar-img.gif");
+        //Icon imagenIniciar = new ImageIcon("src\\Imagenes\\11-Iniciar-img.gif");
         Icon imagenTema = new ImageIcon("src\\Imagenes\\12-SeleccionarTema-img.gif");
         Icon imagenVolver = new ImageIcon("src\\Imagenes\\13-Volver-img.gif");
         
@@ -76,8 +77,9 @@ public class VistaSeleccionarTema extends JFrame{
         lblAnimales = new JLabel(imagenAnimales);
         lblColores = new JLabel(imagenColores);
         lblFrutas = new JLabel(imagenFrutas);
-        lblIniciar = new JLabel(imagenIniciar);
         lblTema = new JLabel(imagenTema);
+        lblIngresaNombre = new JLabel();
+        lblIniciar = new JLabel();
         
         txtNombre = new JTextField();
         
@@ -89,6 +91,8 @@ public class VistaSeleccionarTema extends JFrame{
         lblFrutas.setBounds(760, 400, 240, 80);
         lblCerrar.setBounds(930,10,240,80);
         lblVolver.setBounds(-150,10,240,80);
+        lblIngresaNombre.setBounds(30,530,240,80);
+        lblIniciar.setBounds(760,530,240,80);
         
         
         lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -96,6 +100,8 @@ public class VistaSeleccionarTema extends JFrame{
         lblAnimales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblFrutas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblColores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblIngresaNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         
         txtNombre.setBounds(410, 280, 470, 80);
         txtNombre.setHorizontalAlignment(JTextField.CENTER);
@@ -115,6 +121,8 @@ public class VistaSeleccionarTema extends JFrame{
         jpContenidoGeneral.add(lblAnimales);
         jpContenidoGeneral.add(lblColores);
         jpContenidoGeneral.add(lblFrutas);
+        jpContenidoGeneral.add(lblIngresaNombre); 
+        jpContenidoGeneral.add(lblIniciar);  
         jpContenidoGeneral.add(lblTema);
             
     }
@@ -152,15 +160,20 @@ public class VistaSeleccionarTema extends JFrame{
     
     public void agregarLblIniciar(){
         Icon imagenIniciar = new ImageIcon("src\\Imagenes\\11-Iniciar-img.gif");
-        lblIniciar = new JLabel(imagenIniciar);
-        lblIniciar.setBounds(760,530,240,80);
-        lblIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jpContenidoGeneral.add(lblIniciar,20, 4);  
+        lblIniciar.setIcon(imagenIniciar);    
+    }
+    
+    public void agregarLblIngresarNombre(){
+        Icon imagenIngresaNombre = new ImageIcon("src\\Imagenes\\14-IngresaNombre-img.gif");
+        lblIngresaNombre.setIcon(imagenIngresaNombre);  
     }
     
     public void eliminarLblIniciar(){
-        System.out.println("Hola");
         lblIniciar.setIcon(null);
+    }
+    
+    public void eliminarLblIngresarNombre(){
+        lblIngresaNombre.setIcon(null);
     }
     
     public String getNombre(){
