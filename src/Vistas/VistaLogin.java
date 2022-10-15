@@ -21,8 +21,6 @@ import javax.swing.JPanel;
  */
 public class VistaLogin extends JFrame{
     
-    private Container containerLogin;
-    
     private JLabel lblTitle;
     private JLabel lblComoJugar;
     private JLabel lblJugar;

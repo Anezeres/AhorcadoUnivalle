@@ -23,8 +23,6 @@ import javax.swing.JTextField;
  */
 public class VistaSeleccionarTema extends JFrame{
     
-    private Container containerTema; 
-    
     private JLabel lblTema;
     private JLabel lblAnimales;
     private JLabel lblFrutas;
@@ -103,13 +101,13 @@ public class VistaSeleccionarTema extends JFrame{
         lblIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblIngresaNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         
+        /* Nombre */
+        
         txtNombre.setBounds(410, 280, 470, 80);
         txtNombre.setHorizontalAlignment(JTextField.CENTER);
         txtNombre.setBorder(null);
         txtNombre.setForeground(Color.GRAY);
         txtNombre.setFont(new Font("arial", Font.BOLD, 30)); 
-        
-        /* Nombre */
         
         
         
