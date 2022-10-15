@@ -20,10 +20,12 @@ public class VistaAhorcado extends JFrame{
     private JLabel lblAhorcado;
     private JLabel lblFondoAhorcado;
     
-    private Icon[] imagenesLetras;
+    private final Icon[] imagenesLetras;
+    private final JLabel[] lblLetras;
 
     public VistaAhorcado() {
         this.imagenesLetras = new Icon[26];
+        this.lblLetras = new JLabel[26];
     }
     
     public void configurarVistaAhorcado(){
@@ -50,6 +52,7 @@ public class VistaAhorcado extends JFrame{
         /* Inicializacion de imagenes */
         
         asignarLabelsLetras();
+        llenarArrayLabelsLetras();
         
         lblAhorcado = new JLabel(imagenAhorcado);
         lblFondoAhorcado = new JLabel(imagenFondo);
@@ -66,6 +69,49 @@ public class VistaAhorcado extends JFrame{
         colocarLetrasEnVista();
         jpContenidoGeneral.add(lblAhorcado);
         jpContenidoGeneral.add(lblFondoAhorcado);
+    }
+    
+    public void indicarPosicionLetras(){
+        
+        /* Primeras 7 letras */
+        realizarBuclePosicionamiento(410, 0, 7, 270);
+        
+        /* Segundas 7 letras */
+        realizarBuclePosicionamiento(410, 7, 14,355);
+        
+        /* Terceras 7 letras */
+        realizarBuclePosicionamiento(410, 14, 21,438);
+        
+        /* Ultimas 5 letras */
+        realizarBuclePosicionamiento(483, 21, 26,524);
+        
+    }
+    
+    public void realizarBuclePosicionamiento(int posicionInicial, int letraInicial, int letraFinal, int altura){
+        for(int i = letraInicial; i<letraFinal;i++){
+            lblLetras[i].setBounds(posicionInicial, altura, 73, 73);
+            posicionInicial = posicionInicial + 83;
+        }
+    }
+    
+    public void colocarLetrasEnVista(){
+        for (JLabel lblLetra : lblLetras) {
+            jpContenidoGeneral.add(lblLetra);
+        }
+    }
+    
+    public void llenarArrayIconosLetra(){
+        String letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        
+        for(int i = 0; i<letras.length() ; i++){
+            imagenesLetras[i] = cargarLetra("" + letras.charAt(i));
+        }
+        
+    }
+    
+    public Icon cargarLetra(String letra){
+        Icon imagenLetra = new ImageIcon("src\\Imagenes\\LetrasActivas\\00-LetraActiva"+ letra +"-img.jpg");
+        return imagenLetra;
     }
     
     public void asignarLabelsLetras(){
@@ -98,38 +144,34 @@ public class VistaAhorcado extends JFrame{
         
     }
     
-    public void indicarPosicionLetras(){
-        lblLetraA.setBounds(410,270,73,73);
-        lblLetraB.setBounds(493,270,73,73);
-        lblLetraC.setBounds(576,270,73,73);
-        lblLetraD.setBounds(659,270,73,73);
-        lblLetraE.setBounds(742,270,73,73);
-        lblLetraF.setBounds(825,270,73,73);
-        lblLetraG.setBounds(908,270,73,73);
-    }
-    
-    public void colocarLetrasEnVista(){
-        jpContenidoGeneral.add(lblLetraA);
-        jpContenidoGeneral.add(lblLetraB);
-        jpContenidoGeneral.add(lblLetraC);
-        jpContenidoGeneral.add(lblLetraD);
-        jpContenidoGeneral.add(lblLetraE);
-        jpContenidoGeneral.add(lblLetraF);
-        jpContenidoGeneral.add(lblLetraG);
-    }
-    
-    public void llenarArrayIconosLetra(){
-        String letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        
-        for(int i = 0; i<letras.length() ; i++){
-            imagenesLetras[i] = cargarLetra("" + letras.charAt(i));
-        }
-        
-    }
-    
-    public Icon cargarLetra(String letra){
-        Icon imagenLetra = new ImageIcon("src\\Imagenes\\LetrasActivas\\00-LetraActiva"+ letra +"-img.jpg");
-        return imagenLetra;
+    public void llenarArrayLabelsLetras(){
+        lblLetras[0] = lblLetraA;
+        lblLetras[1] = lblLetraB;
+        lblLetras[2] = lblLetraC;
+        lblLetras[3] = lblLetraD;
+        lblLetras[4] = lblLetraE;
+        lblLetras[5] = lblLetraF;
+        lblLetras[6] = lblLetraG;
+        lblLetras[7] = lblLetraH;
+        lblLetras[8] = lblLetraI;
+        lblLetras[9] = lblLetraJ;
+        lblLetras[10] = lblLetraK;
+        lblLetras[11] = lblLetraL;
+        lblLetras[12] = lblLetraM;
+        lblLetras[13] = lblLetraN;
+        lblLetras[14] = lblLetraO;
+        lblLetras[15] = lblLetraP;
+        lblLetras[16] = lblLetraQ;
+        lblLetras[17] = lblLetraR;
+        lblLetras[18] = lblLetraS;
+        lblLetras[19] = lblLetraT;
+        lblLetras[20] = lblLetraU;
+        lblLetras[21] = lblLetraV;
+        lblLetras[22] = lblLetraW;
+        lblLetras[23] = lblLetraX;
+        lblLetras[24] = lblLetraY;
+        lblLetras[25] = lblLetraZ;
+   
     }
     
     
