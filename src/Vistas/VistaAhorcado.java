@@ -64,6 +64,8 @@ public class VistaAhorcado extends JFrame{
         lblAhorcado.setBounds(0, 0, 370, 640);
         lblFondoAhorcado.setBounds(0,0,1024,640);
         
+        ponerCursorActivoALetras();
+        
         /* Se agregan labels al contenido general */
         
         colocarLetrasEnVista();
@@ -92,6 +94,14 @@ public class VistaAhorcado extends JFrame{
             lblLetras[i].setBounds(posicionInicial, altura, 73, 73);
             posicionInicial = posicionInicial + 83;
         }
+    }
+    
+    public void ponerCursorActivoALetras(){
+        
+        for (JLabel lblLetra : lblLetras) {
+            lblLetra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        }
+        
     }
     
     public void colocarLetrasEnVista(){
@@ -142,7 +152,7 @@ public class VistaAhorcado extends JFrame{
         lblLetraY = new JLabel(imagenesLetras[24]);
         lblLetraZ = new JLabel(imagenesLetras[25]);
         
-    }
+    } 
     
     public void llenarArrayLabelsLetras(){
         lblLetras[0] = lblLetraA;
