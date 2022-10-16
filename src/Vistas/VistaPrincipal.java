@@ -19,7 +19,7 @@ import javax.swing.JPanel;
  *
  * @author RYZEN
  */
-public class VistaLogin extends JFrame{
+public class VistaPrincipal extends JFrame{
     
     private JLabel lblTitle;
     private JLabel lblComoJugar;
@@ -29,7 +29,7 @@ public class VistaLogin extends JFrame{
     
     private JPanel jpContenidoGeneral;
 
-    public VistaLogin() {
+    public VistaPrincipal() {
     }
     
     public void configurarVistaLogin(){
@@ -110,6 +110,10 @@ public class VistaLogin extends JFrame{
     
     public JLabel getJugar(){
         return lblJugar;
+    }
+    
+    public JLabel getComoJugar(){
+        return lblComoJugar;
     }
     
 }

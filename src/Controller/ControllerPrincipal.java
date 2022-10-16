@@ -5,7 +5,8 @@
 package Controller;
 
 import Modelo.ModeloPrincipal;
-import Vistas.VistaLogin;
+import Vistas.VistaComoJugar;
+import Vistas.VistaPrincipal;
 import Vistas.VistaSeleccionarTema;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -17,9 +18,9 @@ import javax.swing.JOptionPane;
  */
 public class ControllerPrincipal {
     private ModeloPrincipal modelo;
-    private VistaLogin vista;
+    private VistaPrincipal vista;
 
-    public ControllerPrincipal(ModeloPrincipal modelo, VistaLogin vista) {
+    public ControllerPrincipal(ModeloPrincipal modelo, VistaPrincipal vista) {
         this.modelo = modelo;
         this.vista = vista;
         
@@ -37,6 +38,7 @@ public class ControllerPrincipal {
         
         vista.addLblCerrarMouseListener(controllerMouse);
         vista.addLblJugarMouseListener(controllerMouse);
+        vista.addLblComoJugarMouseListener(controllerMouse);
     }
     
     public class MouseListenerController extends MouseAdapter{
@@ -53,6 +55,10 @@ public class ControllerPrincipal {
                 vista.dispose();
                 VistaSeleccionarTema vistaTema = new VistaSeleccionarTema();
                 ControllerSeleccionarTema controllerTema = new ControllerSeleccionarTema(modelo,vistaTema);
+           }else if(event.getSource() == vista.getComoJugar()){
+                vista.dispose();
+                VistaComoJugar vistaComoJugar = new VistaComoJugar();
+                ControllerComoJugar controllerComoJugar = new ControllerComoJugar(modelo,vistaComoJugar);
            }
             
         }

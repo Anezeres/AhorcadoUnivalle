@@ -6,7 +6,7 @@ package AhorcadoUnivallePrincipal;
 
 import Controller.ControllerPrincipal;
 import Modelo.ModeloPrincipal;
-import Vistas.VistaLogin;
+import Vistas.VistaPrincipal;
 
 /**
  *
@@ -18,7 +18,7 @@ public class AhorcadoUnivalle {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        VistaLogin vista = new VistaLogin();
+        VistaPrincipal vista = new VistaPrincipal();
         ModeloPrincipal modelo = new ModeloPrincipal();
         
         ControllerPrincipal controller = new ControllerPrincipal(modelo, vista);

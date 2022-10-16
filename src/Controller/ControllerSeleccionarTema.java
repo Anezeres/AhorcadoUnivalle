@@ -6,7 +6,7 @@ package Controller;
 
 import Modelo.ModeloPrincipal;
 import Vistas.VistaAhorcado;
-import Vistas.VistaLogin;
+import Vistas.VistaPrincipal;
 import Vistas.VistaSeleccionarTema;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -122,7 +122,7 @@ public class ControllerSeleccionarTema {
                 
             }else if(event.getSource() == vistaTema.getLblVolver()){
                 vistaTema.dispose();
-                VistaLogin vista = new VistaLogin();
+                VistaPrincipal vista = new VistaPrincipal();
                 ControllerPrincipal controller = new ControllerPrincipal(modelo, vista);
             }
             
