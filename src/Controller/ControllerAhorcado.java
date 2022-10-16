@@ -28,6 +28,7 @@ public final class ControllerAhorcado {
         vistaAhorcado.configurarVistaAhorcado();
         int sizePalabra = 4;
         vistaAhorcado.cambiarFondoSegunSizePalabra(sizePalabra);
+        vistaAhorcado.setNombre("Andres Del Carmen de los Santos");
         agregarControllers();
     }
     

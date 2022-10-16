@@ -79,12 +79,15 @@ public class VistaComoJugar extends JFrame{
     
     public void cambiarDePagina(){
         pagina++;
-        Icon imagenPaso = new ImageIcon("src\\Imagenes\\ComoJugar\\00-ComoJugar"+pagina+"-img.gif");
-        lblPaso.setIcon(imagenPaso);
+        
         
         if(pagina == 4){
-            lblSiguiente.setIcon(imagenPaso);
+            lblSiguiente.setIcon(null);
+            lblSiguiente.setBounds(0,0,0,0);
         }
+        
+        Icon imagenPaso = new ImageIcon("src\\Imagenes\\ComoJugar\\00-ComoJugar"+pagina+"-img.gif");
+        lblPaso.setIcon(imagenPaso);
     }
     
     /* Metodos para añadir listeners */
@@ -114,5 +117,7 @@ public class VistaComoJugar extends JFrame{
     public JLabel getLblSiguiente(){
         return lblSiguiente;
     }
+    
+    
     
 }

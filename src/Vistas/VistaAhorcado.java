@@ -581,7 +581,9 @@ public class VistaAhorcado extends JFrame{
         this.ZActivo = ZActivo;
     }
     
-    
+    public void setNombre(String nuevoNombre){
+        lblNombre.setText(nuevoNombre.substring(0,11));
+    }
      
  
 }
