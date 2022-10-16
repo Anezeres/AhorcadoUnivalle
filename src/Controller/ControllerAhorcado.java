@@ -15,10 +15,10 @@ import javax.swing.JOptionPane;
  *
  * @author RYZEN
  */
-public class ControllerAhorcado {
+public final class ControllerAhorcado {
     
-    private ModeloPrincipal modelo;
-    private VistaAhorcado vistaAhorcado;
+    private final ModeloPrincipal modelo;
+    private final VistaAhorcado vistaAhorcado;
 
     public ControllerAhorcado(ModeloPrincipal modelo, VistaAhorcado vistaAhorcado) {
         this.modelo = modelo;
@@ -26,7 +26,8 @@ public class ControllerAhorcado {
         
         vistaAhorcado.iniciarComponentesAhorcado();
         vistaAhorcado.configurarVistaAhorcado();
-        
+        int sizePalabra = 4;
+        vistaAhorcado.cambiarFondoSegunSizePalabra(sizePalabra);
         agregarControllers();
     }
     
@@ -39,11 +40,16 @@ public class ControllerAhorcado {
     
     public class MouseListenerController extends MouseAdapter{
         
+        @Override
         public void mouseClicked(MouseEvent event){
             
-            if (event.getSource() == vistaAhorcado.saberSiLetraFuePresionada( (JLabel) event.getSource())){
+            if (event.getSource() == vistaAhorcado.saberSiUnaLetraFuePresionada( (JLabel) event.getSource())){
+                int sizePalabra = 4;
                 
-                System.out.println("" + vistaAhorcado.saberLetraPresionada((JLabel) event.getSource()));
+                //vistaAhorcado.ponerLetraInactiva( vistaAhorcado.saberLetraPresionada((JLabel) event.getSource()));
+                vistaAhorcado.agregarLetraSeleccionada(3, sizePalabra, (JLabel) event.getSource());
+                vistaAhorcado.cambiarImagenAhorcadoError(1);
+                
             }
             
         }
