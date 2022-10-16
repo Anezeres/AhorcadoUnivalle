@@ -4,6 +4,7 @@
  */
 package Vistas;
 
+import java.awt.event.MouseAdapter;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -124,6 +125,38 @@ public class VistaAhorcado extends JFrame{
         return imagenLetra;
     }
     
+   /* Listener de cada letra */
+    
+    public void addLblLetrasMouseListener(MouseAdapter listenControles){
+        for (JLabel lblLetra : lblLetras) {
+            lblLetra.addMouseListener(listenControles);
+        }
+    }
+    
+    public JLabel saberSiLetraFuePresionada(JLabel letraPreguntada){
+        
+        JLabel letraResultante = null;
+        for (JLabel lblLetra : lblLetras) {
+            if(lblLetra == letraPreguntada){
+                letraResultante = lblLetra;
+            }
+        }
+        return letraResultante;
+    }
+    
+    public char saberLetraPresionada(JLabel letraPreguntada){
+        
+        char letraPresionada = 'a';
+        for (JLabel lblLetra : lblLetras) {
+            if(lblLetra == letraPreguntada){
+                letraPresionada = lblLetra.getIcon().toString().charAt(41);
+            }
+        }
+        return letraPresionada;
+    }
+    
+    
+    
     public void asignarLabelsLetras(){
         lblLetraA = new JLabel(imagenesLetras[0]);
         lblLetraB = new JLabel(imagenesLetras[1]);
@@ -183,6 +216,8 @@ public class VistaAhorcado extends JFrame{
         lblLetras[25] = lblLetraZ;
    
     }
+    
+
     
     
     private JLabel lblLetraA;

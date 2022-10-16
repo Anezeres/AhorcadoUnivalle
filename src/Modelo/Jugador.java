@@ -9,7 +9,7 @@ package Modelo;
  * @author RYZEN
  */
 public class Jugador {
-    private Ronda frases;
+    //private Ronda frases;
     
     private String frase, clave, errores;
     
@@ -19,7 +19,7 @@ public class Jugador {
     
     
     public Jugador() {
-        frases = new Ronda();
+        //frases = new Ronda();
         
     }
     
@@ -29,7 +29,7 @@ public class Jugador {
         //Inicializacion delas variables de la ronda.
         clave = "";  
         //Obtener frase
-        frase = frases.getFrase();        
+        //frase = frases.getFrase();        
         errores = "Letras Erroneas: ";
         conteoErrores = 0;
         numeroIntentos = 10;        

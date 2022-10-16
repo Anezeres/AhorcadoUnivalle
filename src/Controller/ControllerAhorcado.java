@@ -7,6 +7,9 @@ package Controller;
 import Modelo.ModeloPrincipal;
 import Vistas.VistaAhorcado;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,16 +27,26 @@ public class ControllerAhorcado {
         vistaAhorcado.iniciarComponentesAhorcado();
         vistaAhorcado.configurarVistaAhorcado();
         
-        //agregarControllers();
+        agregarControllers();
     }
     
     public void agregarControllers(){
         
-        //MouseListenerController controllerMouse = new MouseListenerController();
+        MouseListenerController controllerMouse = new MouseListenerController();
+        vistaAhorcado.addLblLetrasMouseListener(controllerMouse);
         
     }
     
     public class MouseListenerController extends MouseAdapter{
+        
+        public void mouseClicked(MouseEvent event){
+            
+            if (event.getSource() == vistaAhorcado.saberSiLetraFuePresionada( (JLabel) event.getSource())){
+                
+                System.out.println("" + vistaAhorcado.saberLetraPresionada((JLabel) event.getSource()));
+            }
+            
+        }
         
     }
     
