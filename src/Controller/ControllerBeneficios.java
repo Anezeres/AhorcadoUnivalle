@@ -5,9 +5,9 @@
 package Controller;
 
 import Modelo.ModeloPrincipal;
+import Vistas.VistaBeneficios;
 import Vistas.VistaComoJugar;
 import Vistas.VistaPrincipal;
-import Vistas.VistaSeleccionarTema;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
@@ -16,17 +16,17 @@ import javax.swing.JOptionPane;
  *
  * @author RYZEN
  */
-public class ControllerComoJugar {
+public class ControllerBeneficios {
     
     private ModeloPrincipal modelo;
-    private VistaComoJugar vistaComoJugar;
+    private VistaBeneficios vistaBeneficios;
     
-    public ControllerComoJugar(ModeloPrincipal modelo, VistaComoJugar vistaComoJugar) {
+    public ControllerBeneficios(ModeloPrincipal modelo, VistaBeneficios vistaBeneficios) {
         this.modelo = modelo;
-        this.vistaComoJugar = vistaComoJugar;
+        this.vistaBeneficios = vistaBeneficios;
         
-        vistaComoJugar.iniciarComponentesComoJugar();
-        vistaComoJugar.configurarVistaComoJugar();
+        vistaBeneficios.iniciarComponentesComoJugar();
+        vistaBeneficios.configurarVistaComoJugar();
         
         agregarControllers();
     }
@@ -35,11 +35,9 @@ public class ControllerComoJugar {
         
         MouseListenerController controllerMouse = new MouseListenerController();
         
-        vistaComoJugar.addLblCerrarMouseListener(controllerMouse);
-        vistaComoJugar.addLblVolverMouseListener(controllerMouse);
-        vistaComoJugar.addLblSiguienteMouseListener(controllerMouse);
-        
-        
+        vistaBeneficios.addLblCerrarMouseListener(controllerMouse);
+        vistaBeneficios.addLblVolverMouseListener(controllerMouse);
+ 
     }
     
     public class MouseListenerController extends MouseAdapter{
@@ -47,20 +45,19 @@ public class ControllerComoJugar {
         @Override
         public void mouseClicked(MouseEvent event){
             
-            if (event.getSource() == vistaComoJugar.getLblCerrar()){
+            if (event.getSource() == vistaBeneficios.getLblCerrar()){
                 if (JOptionPane.showConfirmDialog(null, "¿Seguro que quieres salir?", "Mensaje", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                    vistaComoJugar.dispose();
+                    vistaBeneficios.dispose();
              
                 }
-            }else if(event.getSource() == vistaComoJugar.getLblVolver()){
-                vistaComoJugar.dispose();
+            }else if(event.getSource() == vistaBeneficios.getLblVolver()){
+                vistaBeneficios.dispose();
                 VistaPrincipal vista = new VistaPrincipal();
                 ControllerPrincipal vistaPrincipal = new ControllerPrincipal(modelo, vista);
-            }else if(event.getSource() == vistaComoJugar.getLblSiguiente()){
-                vistaComoJugar.cambiarDePagina();
             }
         }
     }
+    
     
     
 }

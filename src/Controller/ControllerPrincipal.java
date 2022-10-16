@@ -5,6 +5,7 @@
 package Controller;
 
 import Modelo.ModeloPrincipal;
+import Vistas.VistaBeneficios;
 import Vistas.VistaComoJugar;
 import Vistas.VistaPrincipal;
 import Vistas.VistaSeleccionarTema;
@@ -39,6 +40,7 @@ public class ControllerPrincipal {
         vista.addLblCerrarMouseListener(controllerMouse);
         vista.addLblJugarMouseListener(controllerMouse);
         vista.addLblComoJugarMouseListener(controllerMouse);
+        vista.addLblBeneficiosMouseListener(controllerMouse);
     }
     
     public class MouseListenerController extends MouseAdapter{
@@ -59,7 +61,12 @@ public class ControllerPrincipal {
                 vista.dispose();
                 VistaComoJugar vistaComoJugar = new VistaComoJugar();
                 ControllerComoJugar controllerComoJugar = new ControllerComoJugar(modelo,vistaComoJugar);
+           }else if(event.getSource() == vista.getBeneficios()){
+                vista.dispose();
+                VistaBeneficios vistaBeneficios = new VistaBeneficios();
+                ControllerBeneficios controllerComoJugar = new ControllerBeneficios(modelo,vistaBeneficios);
            }
+            
             
         }
    

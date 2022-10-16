@@ -116,6 +116,10 @@ public class VistaPrincipal extends JFrame{
         return lblComoJugar;
     }
     
+    public JLabel getBeneficios(){
+        return lblBeneficios;
+    }
+    
 }
 
 
