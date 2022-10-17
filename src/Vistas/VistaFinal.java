@@ -107,15 +107,15 @@ public class VistaFinal extends JFrame{
         lblVolver.addMouseListener(listenControles);
     }
     
-    public void setGanadas(float nuevoNombre){
+    public void setGanadas(double nuevoNombre){
         lblGanadas.setText(String.valueOf(nuevoNombre));
     }
     
-    public void setPerdidas(float nuevoNombre){
+    public void setPerdidas(double nuevoNombre){
         lblPerdidas.setText(String.valueOf(nuevoNombre));
     }
     
-    public void setJugadas(float nuevoNombre){
+    public void setJugadas(double nuevoNombre){
         lblJugadas.setText(String.valueOf(nuevoNombre));
     }
     

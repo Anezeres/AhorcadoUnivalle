@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package AhorcadoUnivallePrincipal;
 
 import Controller.ControllerPrincipal;
@@ -12,13 +8,14 @@ import Vistas.VistaPrincipal;
 
 /**
  *
- * @author RYZEN
+ * @author Julian Alvarez <alvarez.julian@correounivalle.edu.co>
+ * @author Sebastian Cespedes <sebastian.cespedes@correounivalle.edu.co>
+ * @author Juan Pablo Ante <juan.pablo.ante@correounivalle.edu.co>
+ * 
  */
+
 public class AhorcadoUnivalle {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         Jugador jugador = new Jugador();
         Ronda ronda = new Ronda();

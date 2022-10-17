@@ -20,6 +20,8 @@ public class Jugador {
     private int partidasJugadas;
     private int partidasPerdidas;
     private int partidasGanadas;
+    private double porcentajeGanadas;
+    private double porcentajePerdidas;
     private int porcentaje;
     public boolean fallo, ganar;
 
@@ -47,12 +49,12 @@ public class Jugador {
     
     
 
-    public float porcentajeGanadas(){
-        return (100*(partidasGanadas/partidasJugadas) );
+    public void porcentajeGanadas(){
+        porcentajeGanadas =((partidasGanadas/partidasJugadas)*100 );
     }
     
-    public float porcentajePerdidas(){
-        return (100*(partidasPerdidas/partidasJugadas) );
+    public void porcentajePerdidas(){
+        porcentajePerdidas = ((partidasPerdidas/partidasJugadas)*100 );
     }
 
     public String getClave() {
@@ -135,11 +137,25 @@ public class Jugador {
         this.partidasGanadas = partidasGanadas;
     }
 
+    public double getPorcentajeGanadas() {
+        porcentajeGanadas();
+        return porcentajeGanadas;
+    }
+
+
+    public double getPorcentajePerdidas() {
+        porcentajePerdidas();
+        return porcentajePerdidas;
+    }
+
+    
+    
+
     @Override
     public String toString() {
-        return "Jugador{" + "partidasJugadas=" + partidasJugadas + ","
+        return "\nPorcentaje Ganadas: " + getPorcentajeGanadas() +" \nPorcentaje perdidas: "+ getPorcentajePerdidas() + "Jugador{" + "partidasJugadas=" + partidasJugadas + ","
                 + " \npartidasPerdidas=" + partidasPerdidas + ","
-                + " \npartidasGanadas=" + partidasGanadas + '}' + "\nPorcentaje Ganadas: " + porcentajeGanadas() +" \nPorcentaje perdidas: "+ porcentajePerdidas();
+                + " \npartidasGanadas=" + partidasGanadas + '}';
         
     }
     

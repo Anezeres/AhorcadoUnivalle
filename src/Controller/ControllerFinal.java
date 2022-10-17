@@ -1,10 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Controller;
 
 import Modelo.ModeloPrincipal;
+import Vistas.VistaAhorcado;
 import Vistas.VistaFinal;
 import Vistas.VistaPrincipal;
 import java.awt.event.MouseAdapter;
@@ -13,8 +10,12 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author RYZEN
+ * @author Julian Alvarez <alvarez.julian@correounivalle.edu.co>
+ * @author Sebastian Cespedes <sebastian.cespedes@correounivalle.edu.co>
+ * @author Juan Pablo Ante <juan.pablo.ante@correounivalle.edu.co>
+ * 
  */
+
 public class ControllerFinal {
     
     private final ModeloPrincipal modelo;
@@ -28,8 +29,8 @@ public class ControllerFinal {
         vistaFinal.configurarVistaFinal();
         
         vistaFinal.setNombre(modelo.getJugador().getNombre());
-        vistaFinal.setGanadas(modelo.getJugador().porcentajeGanadas());
-        vistaFinal.setPerdidas(modelo.getJugador().porcentajePerdidas());
+        vistaFinal.setGanadas(modelo.getJugador().getPorcentajeGanadas());
+        vistaFinal.setPerdidas(modelo.getJugador().getPorcentajePerdidas());
         vistaFinal.setJugadas(modelo.getJugador().getPartidasJugadas());
         
         agregarControllers();
@@ -54,9 +55,19 @@ public class ControllerFinal {
              
                 }
             }else if(event.getSource() == vistaFinal.getLblVolver()){
+                terminarPartida();
+            }
+        }
+        
+        public void terminarPartida(){
+            if (JOptionPane.showConfirmDialog(null, "¿Quieres seguir jugando?", "Mensaje", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 vistaFinal.dispose();
+                modelo.getJugador().reiniciarNumeroIntentos();
+                modelo.getJugador().reiniciarErrores();
+                modelo.getRonda().seleccionPalabra();
                 VistaPrincipal vista = new VistaPrincipal();
                 ControllerPrincipal controller = new ControllerPrincipal(modelo, vista);
+                            
             }
         }
     

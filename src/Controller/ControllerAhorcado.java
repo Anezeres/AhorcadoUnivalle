@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Controller;
 
 import Modelo.ModeloPrincipal;
@@ -14,8 +10,12 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author RYZEN
+ * @author Julian Alvarez <alvarez.julian@correounivalle.edu.co>
+ * @author Sebastian Cespedes <sebastian.cespedes@correounivalle.edu.co>
+ * @author Juan Pablo Ante <juan.pablo.ante@correounivalle.edu.co>
+ * 
  */
+
 public final class ControllerAhorcado {
     
     private final ModeloPrincipal modelo;
@@ -52,23 +52,22 @@ public final class ControllerAhorcado {
             
             if (event.getSource() == vistaAhorcado.saberSiUnaLetraFuePresionada( (JLabel) event.getSource())){
                 boolean resultado = modelo.validar((""+vistaAhorcado.saberLetraPresionada((JLabel) event.getSource())).toLowerCase().charAt(0));
-                if(modelo.getJugador().getNumeroIntentos() != 1){
-                    
+                
+                if(modelo.getJugador().getNumeroIntentos() != 0){
+                    if(resultado){
+                            vistaAhorcado.ponerLetraInactiva( vistaAhorcado.saberLetraPresionada((JLabel) event.getSource()));                      
+                        }
+                     
                     int sizePalabra = modelo.getRonda().getSizePalabraActual();
                     vistaAhorcado.agregarLetraSeleccionada(modelo.getRonda().getPosicionDeLetra() + 1, sizePalabra, (JLabel) event.getSource());
                     
                     if(modelo.validarFraseCompleta()){
                         
-                        modelo.getJugador().setPartidasGanadas(modelo.getJugador().getPartidasGanadas() + 1);                
+                        modelo.getJugador().setPartidasGanadas(modelo.getJugador().getPartidasGanadas() + 1);  
+                        System.out.println(modelo.getJugador().toString());
                         terminarPartida();
              
                     }else{
-                        
-                        if(resultado){
-                            System.out.println("Hola Inactivo");
-                            vistaAhorcado.ponerLetraInactiva( vistaAhorcado.saberLetraPresionada((JLabel) event.getSource()));                       
-                        }
-                        
                         
                         vistaAhorcado.cambiarImagenAhorcadoError(modelo.getJugador().getConteoErrores() + 1);
                         vistaAhorcado.setIntentos(modelo.getJugador().getNumeroIntentos());
@@ -79,6 +78,7 @@ public final class ControllerAhorcado {
                     
                 }else{
                     modelo.getJugador().setPartidasPerdidas(modelo.getJugador().getPartidasPerdidas() + 1);
+                    System.out.println(modelo.getJugador().toString());
                     terminarPartida();
                     
                 }
