@@ -28,14 +28,6 @@ public class Jugador {
 
     }
 
-    public void porcentajeGanadas(){
-        porcentajeGanadas =((partidasGanadas/partidasJugadas)*100 );
-    }
-    
-    public void porcentajePerdidas(){
-        porcentajePerdidas = ((partidasPerdidas/partidasJugadas)*100 );
-    }
-
     public int getConteoErrores() {
         return conteoErrores;
     }
@@ -97,14 +89,14 @@ public class Jugador {
     }
 
     public double getPorcentajeGanadas() {
-        porcentajeGanadas();
-        return porcentajeGanadas;
+        double porcentajeGanadas1 =((partidasGanadas/(partidasGanadas + partidasPerdidas))*100 );
+        return porcentajeGanadas1;
     }
 
 
     public double getPorcentajePerdidas() {
-        porcentajePerdidas();
-        return porcentajePerdidas;
+        double porcentajePerdidas1 = (((partidasPerdidas/(partidasGanadas + partidasPerdidas)))*100 );
+        return porcentajePerdidas1;
     }
 
     
@@ -112,7 +104,7 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "\nPorcentaje Ganadas: " + getPorcentajeGanadas() +" \nPorcentaje perdidas: "+ getPorcentajePerdidas() + "Jugador{" + "partidasJugadas=" + partidasJugadas + ","
+        return "\nPorcentaje Ganadas: " + getPorcentajeGanadas() +" \nPorcentaje perdidas: "+ getPorcentajePerdidas() + "\npartidasJugadas=" + partidasJugadas + ","
                 + " \npartidasPerdidas=" + partidasPerdidas + ","
                 + " \npartidasGanadas=" + partidasGanadas + '}';
         

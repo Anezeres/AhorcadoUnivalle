@@ -1,7 +1,6 @@
 package Controller;
 
 import Modelo.ModeloPrincipal;
-import Vistas.VistaAhorcado;
 import Vistas.VistaFinal;
 import Vistas.VistaPrincipal;
 import java.awt.event.MouseAdapter;

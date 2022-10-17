@@ -97,7 +97,6 @@ public class VistaAhorcado extends JFrame{
     }
     
     public void ponerCursorActivoALetras(){
-        
         for (JLabel lblLetra : lblLetras) {
             lblLetra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         }
@@ -236,99 +235,6 @@ public class VistaAhorcado extends JFrame{
         lblFondoAhorcado.setIcon(imagenFondo);
     }
     
-    
-    
-    public void asignarLabelsLetras(){
-        lblLetraA = new JLabel(imagenesLetrasActivas[0]);
-        lblLetraB = new JLabel(imagenesLetrasActivas[1]);
-        lblLetraC = new JLabel(imagenesLetrasActivas[2]);
-        lblLetraD = new JLabel(imagenesLetrasActivas[3]);
-        lblLetraE = new JLabel(imagenesLetrasActivas[4]);
-        lblLetraF = new JLabel(imagenesLetrasActivas[5]);
-        lblLetraG = new JLabel(imagenesLetrasActivas[6]);
-        lblLetraH = new JLabel(imagenesLetrasActivas[7]);
-        lblLetraI = new JLabel(imagenesLetrasActivas[8]);
-        lblLetraJ = new JLabel(imagenesLetrasActivas[9]);
-        lblLetraK = new JLabel(imagenesLetrasActivas[10]);
-        lblLetraL = new JLabel(imagenesLetrasActivas[11]);
-        lblLetraM = new JLabel(imagenesLetrasActivas[12]);
-        lblLetraN = new JLabel(imagenesLetrasActivas[13]);
-        lblLetraO = new JLabel(imagenesLetrasActivas[14]);
-        lblLetraP = new JLabel(imagenesLetrasActivas[15]);
-        lblLetraQ = new JLabel(imagenesLetrasActivas[16]);
-        lblLetraR = new JLabel(imagenesLetrasActivas[17]);
-        lblLetraS = new JLabel(imagenesLetrasActivas[18]);
-        lblLetraT = new JLabel(imagenesLetrasActivas[19]);
-        lblLetraU = new JLabel(imagenesLetrasActivas[20]);
-        lblLetraV = new JLabel(imagenesLetrasActivas[21]);
-        lblLetraW = new JLabel(imagenesLetrasActivas[22]);
-        lblLetraX = new JLabel(imagenesLetrasActivas[23]);
-        lblLetraY = new JLabel(imagenesLetrasActivas[24]);
-        lblLetraZ = new JLabel(imagenesLetrasActivas[25]);
-        
-    } 
-    
-    public void llenarArrayLabelsLetras(){
-        lblLetras[0] = lblLetraA;
-        lblLetras[1] = lblLetraB;
-        lblLetras[2] = lblLetraC;
-        lblLetras[3] = lblLetraD;
-        lblLetras[4] = lblLetraE;
-        lblLetras[5] = lblLetraF;
-        lblLetras[6] = lblLetraG;
-        lblLetras[7] = lblLetraH;
-        lblLetras[8] = lblLetraI;
-        lblLetras[9] = lblLetraJ;
-        lblLetras[10] = lblLetraK;
-        lblLetras[11] = lblLetraL;
-        lblLetras[12] = lblLetraM;
-        lblLetras[13] = lblLetraN;
-        lblLetras[14] = lblLetraO;
-        lblLetras[15] = lblLetraP;
-        lblLetras[16] = lblLetraQ;
-        lblLetras[17] = lblLetraR;
-        lblLetras[18] = lblLetraS;
-        lblLetras[19] = lblLetraT;
-        lblLetras[20] = lblLetraU;
-        lblLetras[21] = lblLetraV;
-        lblLetras[22] = lblLetraW;
-        lblLetras[23] = lblLetraX;
-        lblLetras[24] = lblLetraY;
-        lblLetras[25] = lblLetraZ;
-   
-    }
-    
-
-    
-    
-    private JLabel lblLetraA;
-    private JLabel lblLetraB;
-    private JLabel lblLetraC;
-    private JLabel lblLetraD;
-    private JLabel lblLetraE;
-    private JLabel lblLetraF;
-    private JLabel lblLetraG;
-    private JLabel lblLetraH;
-    private JLabel lblLetraI;
-    private JLabel lblLetraJ;
-    private JLabel lblLetraK;
-    private JLabel lblLetraL;
-    private JLabel lblLetraM;
-    private JLabel lblLetraN;
-    private JLabel lblLetraO;
-    private JLabel lblLetraP;
-    private JLabel lblLetraQ;
-    private JLabel lblLetraR;
-    private JLabel lblLetraS;
-    private JLabel lblLetraT;
-    private JLabel lblLetraU;
-    private JLabel lblLetraV;
-    private JLabel lblLetraW;
-    private JLabel lblLetraX;
-    private JLabel lblLetraY;
-    private JLabel lblLetraZ;
-
-    
     public void setNombre(String nuevoNombre){
         if(nuevoNombre.length() > 10){
             lblNombre.setText(nuevoNombre.substring(0,11));
@@ -389,6 +295,95 @@ public class VistaAhorcado extends JFrame{
     }
     
     
-     
+    
+    /* Metodos que deberian estar de ultimos por su extención */
+    
+    
+    private JLabel lblLetraA;
+    private JLabel lblLetraB;
+    private JLabel lblLetraC;
+    private JLabel lblLetraD;
+    private JLabel lblLetraE;
+    private JLabel lblLetraF;
+    private JLabel lblLetraG;
+    private JLabel lblLetraH;
+    private JLabel lblLetraI;
+    private JLabel lblLetraJ;
+    private JLabel lblLetraK;
+    private JLabel lblLetraL;
+    private JLabel lblLetraM;
+    private JLabel lblLetraN;
+    private JLabel lblLetraO;
+    private JLabel lblLetraP;
+    private JLabel lblLetraQ;
+    private JLabel lblLetraR;
+    private JLabel lblLetraS;
+    private JLabel lblLetraT;
+    private JLabel lblLetraU;
+    private JLabel lblLetraV;
+    private JLabel lblLetraW;
+    private JLabel lblLetraX;
+    private JLabel lblLetraY;
+    private JLabel lblLetraZ;
+    
+    public void asignarLabelsLetras(){
+        lblLetraA = new JLabel(imagenesLetrasActivas[0]);
+        lblLetraB = new JLabel(imagenesLetrasActivas[1]);
+        lblLetraC = new JLabel(imagenesLetrasActivas[2]);
+        lblLetraD = new JLabel(imagenesLetrasActivas[3]);
+        lblLetraE = new JLabel(imagenesLetrasActivas[4]);
+        lblLetraF = new JLabel(imagenesLetrasActivas[5]);
+        lblLetraG = new JLabel(imagenesLetrasActivas[6]);
+        lblLetraH = new JLabel(imagenesLetrasActivas[7]);
+        lblLetraI = new JLabel(imagenesLetrasActivas[8]);
+        lblLetraJ = new JLabel(imagenesLetrasActivas[9]);
+        lblLetraK = new JLabel(imagenesLetrasActivas[10]);
+        lblLetraL = new JLabel(imagenesLetrasActivas[11]);
+        lblLetraM = new JLabel(imagenesLetrasActivas[12]);
+        lblLetraN = new JLabel(imagenesLetrasActivas[13]);
+        lblLetraO = new JLabel(imagenesLetrasActivas[14]);
+        lblLetraP = new JLabel(imagenesLetrasActivas[15]);
+        lblLetraQ = new JLabel(imagenesLetrasActivas[16]);
+        lblLetraR = new JLabel(imagenesLetrasActivas[17]);
+        lblLetraS = new JLabel(imagenesLetrasActivas[18]);
+        lblLetraT = new JLabel(imagenesLetrasActivas[19]);
+        lblLetraU = new JLabel(imagenesLetrasActivas[20]);
+        lblLetraV = new JLabel(imagenesLetrasActivas[21]);
+        lblLetraW = new JLabel(imagenesLetrasActivas[22]);
+        lblLetraX = new JLabel(imagenesLetrasActivas[23]);
+        lblLetraY = new JLabel(imagenesLetrasActivas[24]);
+        lblLetraZ = new JLabel(imagenesLetrasActivas[25]);
+        
+    } 
+    
+    public void llenarArrayLabelsLetras(){
+        lblLetras[0] = lblLetraA;
+        lblLetras[1] = lblLetraB;
+        lblLetras[2] = lblLetraC;
+        lblLetras[3] = lblLetraD;
+        lblLetras[4] = lblLetraE;
+        lblLetras[5] = lblLetraF;
+        lblLetras[6] = lblLetraG;
+        lblLetras[7] = lblLetraH;
+        lblLetras[8] = lblLetraI;
+        lblLetras[9] = lblLetraJ;
+        lblLetras[10] = lblLetraK;
+        lblLetras[11] = lblLetraL;
+        lblLetras[12] = lblLetraM;
+        lblLetras[13] = lblLetraN;
+        lblLetras[14] = lblLetraO;
+        lblLetras[15] = lblLetraP;
+        lblLetras[16] = lblLetraQ;
+        lblLetras[17] = lblLetraR;
+        lblLetras[18] = lblLetraS;
+        lblLetras[19] = lblLetraT;
+        lblLetras[20] = lblLetraU;
+        lblLetras[21] = lblLetraV;
+        lblLetras[22] = lblLetraW;
+        lblLetras[23] = lblLetraX;
+        lblLetras[24] = lblLetraY;
+        lblLetras[25] = lblLetraZ;
+   
+    }
  
 }

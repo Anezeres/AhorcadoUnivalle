@@ -28,13 +28,15 @@ public final class ControllerAhorcado {
         vistaAhorcado.iniciarComponentesAhorcado();
         vistaAhorcado.configurarVistaAhorcado();
         
+        modelo.getJugador().setPartidasJugadas(modelo.getJugador().getPartidasJugadas() + 1);
+        
         int sizePalabra = modelo.getRonda().getSizePalabraActual();
         vistaAhorcado.cambiarFondoSegunSizePalabra(sizePalabra);
         
         vistaAhorcado.setNombre(modelo.getJugador().getNombre());
         vistaAhorcado.setIntentos(modelo.getJugador().getNumeroIntentos());
         
-        modelo.getJugador().setPartidasJugadas(modelo.getJugador().getPartidasJugadas() + 1);
+        
         agregarControllers();
     }
     
@@ -49,21 +51,30 @@ public final class ControllerAhorcado {
         
         @Override
         public void mouseClicked(MouseEvent event){
+            JLabel cualquierLetraPresionada = vistaAhorcado.saberSiUnaLetraFuePresionada( (JLabel) event.getSource());
             
-            if (event.getSource() == vistaAhorcado.saberSiUnaLetraFuePresionada( (JLabel) event.getSource())){
-                boolean resultado = modelo.validarLetraIngresada((""+vistaAhorcado.saberLetraPresionada((JLabel) event.getSource())).toLowerCase().charAt(0));
+            if (event.getSource() == cualquierLetraPresionada){
                 
-                if(modelo.getJugador().getNumeroIntentos() != 0){
+                char labelPresionado = vistaAhorcado.saberLetraPresionada((JLabel) event.getSource());
+                
+                char letraIngresada = (""+labelPresionado).toLowerCase().charAt(0);
+                boolean resultado = modelo.validarLetraIngresada(letraIngresada);
+                
+                int numeroIntentos = modelo.getJugador().getNumeroIntentos();
+                
+                if(numeroIntentos != 0){
+                    
                     if(resultado){
-                            vistaAhorcado.ponerLetraInactiva( vistaAhorcado.saberLetraPresionada((JLabel) event.getSource()));                      
-                        }
+                        vistaAhorcado.ponerLetraInactiva(vistaAhorcado.saberLetraPresionada((JLabel) event.getSource()));                      
+                    }
                      
                     int sizePalabra = modelo.getRonda().getSizePalabraActual();
                     vistaAhorcado.agregarLetraSeleccionada(modelo.getRonda().getPosicionDeLetra() + 1, sizePalabra, (JLabel) event.getSource());
                     
                     if(modelo.validarFraseCompleta()){
                         
-                        modelo.getJugador().setPartidasGanadas(modelo.getJugador().getPartidasGanadas() + 1);  
+                        int aumentarNumeroGanadas = modelo.getJugador().getPartidasGanadas() + 1;
+                        modelo.getJugador().setPartidasGanadas(aumentarNumeroGanadas);  
                         System.out.println(modelo.getJugador().toString());
                         terminarPartida();
              
@@ -73,14 +84,16 @@ public final class ControllerAhorcado {
                         vistaAhorcado.setIntentos(modelo.getJugador().getNumeroIntentos());
                         
                         
+                        
+                        
                     }
                     
                     
                 }else{
-                    modelo.getJugador().setPartidasPerdidas(modelo.getJugador().getPartidasPerdidas() + 1);
+                    int aumentarNumeroPerdidas = modelo.getJugador().getPartidasPerdidas() + 1;
+                    modelo.getJugador().setPartidasPerdidas(aumentarNumeroPerdidas);
                     System.out.println(modelo.getJugador().toString());
                     terminarPartida();
-                    
                 }
                 
             }
@@ -92,9 +105,11 @@ public final class ControllerAhorcado {
         public void terminarPartida(){
             if (JOptionPane.showConfirmDialog(null, "¿Quieres seguir jugando?", "Mensaje", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 vistaAhorcado.dispose();
-                modelo.getJugador().reiniciarNumeroIntentos();
-                modelo.getJugador().reiniciarErrores();
-                modelo.getRonda().seleccionPalabra();
+                
+                //modelo.getJugador().reiniciarNumeroIntentos();
+                //modelo.getJugador().reiniciarErrores();
+                //modelo.getRonda().seleccionPalabra();
+                
                 VistaAhorcado vistaAhorcado = new VistaAhorcado();
                 ControllerAhorcado controllerAhorcado = new ControllerAhorcado(modelo,vistaAhorcado);
                             
