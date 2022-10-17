@@ -1,26 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Vistas;
 
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
  *
- * @author RYZEN
+ * @author Julian Alvarez <alvarez.julian@correounivalle.edu.co>
+ * @author Sebastian Cespedes <sebastian.cespedes@correounivalle.edu.co>
+ * @author Juan Pablo Ante <juan.pablo.ante@correounivalle.edu.co>
+ * 
  */
+
 public class VistaSeleccionarTema extends JFrame{
     
     private JLabel lblTema;
@@ -63,7 +60,6 @@ public class VistaSeleccionarTema extends JFrame{
         Icon imagenAnimales = new ImageIcon("src\\Imagenes\\05-Animales-img.gif");
         Icon imagenColores = new ImageIcon("src\\Imagenes\\07-Colores-img.gif");
         Icon imagenFrutas = new ImageIcon("src\\Imagenes\\09-Frutas-img.gif");
-        //Icon imagenIniciar = new ImageIcon("src\\Imagenes\\11-Iniciar-img.gif");
         Icon imagenTema = new ImageIcon("src\\Imagenes\\12-SeleccionarTema-img.gif");
         Icon imagenVolver = new ImageIcon("src\\Imagenes\\13-Volver-img.gif");
         

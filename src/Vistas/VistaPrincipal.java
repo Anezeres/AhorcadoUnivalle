@@ -1,14 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Vistas;
 
-import java.awt.Container;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -17,8 +10,12 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author RYZEN
+ * @author Julian Alvarez <alvarez.julian@correounivalle.edu.co>
+ * @author Sebastian Cespedes <sebastian.cespedes@correounivalle.edu.co>
+ * @author Juan Pablo Ante <juan.pablo.ante@correounivalle.edu.co>
+ * 
  */
+
 public class VistaPrincipal extends JFrame{
     
     private JLabel lblTitle;

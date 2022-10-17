@@ -19,6 +19,7 @@ public class AhorcadoUnivalle {
     public static void main(String[] args) {
         Jugador jugador = new Jugador();
         Ronda ronda = new Ronda();
+        
         VistaPrincipal vista = new VistaPrincipal();
         ModeloPrincipal modelo = new ModeloPrincipal(jugador, ronda);
         

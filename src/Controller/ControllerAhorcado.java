@@ -51,7 +51,7 @@ public final class ControllerAhorcado {
         public void mouseClicked(MouseEvent event){
             
             if (event.getSource() == vistaAhorcado.saberSiUnaLetraFuePresionada( (JLabel) event.getSource())){
-                boolean resultado = modelo.validar((""+vistaAhorcado.saberLetraPresionada((JLabel) event.getSource())).toLowerCase().charAt(0));
+                boolean resultado = modelo.validarLetraIngresada((""+vistaAhorcado.saberLetraPresionada((JLabel) event.getSource())).toLowerCase().charAt(0));
                 
                 if(modelo.getJugador().getNumeroIntentos() != 0){
                     if(resultado){

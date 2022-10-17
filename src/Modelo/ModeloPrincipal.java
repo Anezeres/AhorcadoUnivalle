@@ -12,62 +12,49 @@ public class ModeloPrincipal {
     
     private Jugador jugador;
     private Ronda ronda;
-    private String palabra;
 
     public ModeloPrincipal(Jugador jugador, Ronda ronda) {
         this.jugador = jugador;
         this.ronda = ronda;
-        palabra = "";
     }
     
-    public boolean validar(char letra) {
-        boolean fallo = false;
-        System.out.println("La letra ingresada es: " + letra);
-        
+    public boolean validarLetraIngresada(char letra) {
+        boolean resultadoConsulta;
         int index = ronda.getFraseActual().indexOf(letra);
-        System.out.println("Index letra: " + index);
-        ronda.setPosicionDeLetra(index);
         
+        System.out.println("La letra ingresada es: " + letra);
+
+        ronda.setPosicionDeLetra(index);
         if(index != -1){
+            resultadoConsulta = false;
             remplazarCaracterFraseAuxiliar(index);
-            while(index > -1){
-                
-                if(index != -1){
-                    ronda.setPosicionDeLetra(index);
-                }
-                
-                index = ronda.getFraseActual().indexOf(letra,index  + 1);
-                System.out.println("Valor del Idex dentro del bucle: "+ index);
-                
-            }
             
-            
-            
-            fallo = false;
         }else {
-            fallo = true;
+            resultadoConsulta = true;
             jugador.sumarConteoErrores();
             jugador.restarNumeroIntentos();
+            
         }
-        return fallo;
+        return resultadoConsulta;
     }
     
     
 
     public void remplazarCaracterFraseAuxiliar(int index){ 
+        String primeraPartePalabraAux = ronda.getPalabraActualAuxiliar().substring(0, index);
+        char letraQueSeIngresa = ronda.getPalabraActual().charAt(index);
+        String parteRestantePalabraAux = ronda.getPalabraActualAuxiliar().substring(index + 1);
         
-        ronda.setPalabraActualAuxiliar(ronda.getPalabraActualAuxiliar().substring(0, index) + ronda.palabraActual.charAt(index)+ ronda.getPalabraActualAuxiliar().substring(index + 1));
+        ronda.setPalabraActualAuxiliar(primeraPartePalabraAux + letraQueSeIngresa + parteRestantePalabraAux);
         System.out.println("Palabra Auxiliar: " + ronda.getPalabraActualAuxiliar());
     }
     
     public boolean validarFraseCompleta(){
         return ronda.getPalabraActualAuxiliar().contains(ronda.getFraseActual());
     }
-    
-    public void preguntarOtraVez(char letra){
-        validar(letra);
-    }
 
+    /* Getters and Setters */
+    
     public Jugador getJugador() {
         return jugador;
     }

@@ -1,53 +1,32 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
 /**
  *
- * @author RYZEN
+ * @author Julian Alvarez <alvarez.julian@correounivalle.edu.co>
+ * @author Sebastian Cespedes <sebastian.cespedes@correounivalle.edu.co>
+ * @author Juan Pablo Ante <juan.pablo.ante@correounivalle.edu.co>
+ * 
  */
+
 public class Jugador {
     
     private String nombre;
-    private Ronda frases;
-
-    private String frase, errores;
-    private String clave;
+    
     private int conteoErrores;
     private int numeroIntentos;
+    
     private int partidasJugadas;
     private int partidasPerdidas;
     private int partidasGanadas;
+    
     private double porcentajeGanadas;
     private double porcentajePerdidas;
-    private int porcentaje;
-    public boolean fallo, ganar;
 
 
     public Jugador() {
-        frases = new Ronda();
         numeroIntentos = 10;
 
     }
-
-    public void reemplazarLetra(int index, char letra) {
-        char[] arrayClave = clave.toCharArray();
-        arrayClave[index] = letra;
-        clave = String.copyValueOf(arrayClave);
-    }
-
-    public boolean ganador(){
-        if(clave.indexOf('-') == -1) {
-            ganar = true;
-        }else {
-            ganar = false;
-        }
-        return ganar;
-    }
-    
-    
 
     public void porcentajeGanadas(){
         porcentajeGanadas =((partidasGanadas/partidasJugadas)*100 );
@@ -55,14 +34,6 @@ public class Jugador {
     
     public void porcentajePerdidas(){
         porcentajePerdidas = ((partidasPerdidas/partidasJugadas)*100 );
-    }
-
-    public String getClave() {
-        return clave;
-    }
-
-    public String getErrores() {
-        return errores;
     }
 
     public int getConteoErrores() {
@@ -79,18 +50,6 @@ public class Jugador {
     
     public void sumarConteoErrores() {
         conteoErrores++;
-    }
-
-    public String getFrase() {
-        return frase;
-    }
-
-    public boolean isFallo() {
-        return fallo;
-    }
-
-    public int getPorcentaje() {
-        return porcentaje;
     }
     
     public void setNombre(String nombreNuevo){
