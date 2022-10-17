@@ -35,17 +35,14 @@ public class VistaBeneficios extends JFrame{
     }
     
     public void iniciarComponentesComoJugar(){
-        configurarContenidoGeneral();
-        
+        configurarContenidoGeneral();   
         asignacionImagenesALabels();
         
         
         /* Configuración imagenes */
         
-        posicionarElementos();
-        
-        lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        posicionarElementos();      
+        ponerCursorActivoALabels();
         
         /* Se agregan labels al contenido general */
         
@@ -85,6 +82,12 @@ public class VistaBeneficios extends JFrame{
         lblBeneficios = new JLabel(imagenBeneficios);
         lblCerrar = new JLabel(imagenCerrar);
         lblVolver = new JLabel(imagenVolver);
+    }
+    
+    public void ponerCursorActivoALabels(){
+        lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        
     }
     
     public void configurarContenidoGeneral(){

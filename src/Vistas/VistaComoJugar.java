@@ -40,23 +40,17 @@ public class VistaComoJugar extends JFrame{
     
     public void iniciarComponentesComoJugar(){
         configurarContenidoGeneral();
-        
         asignacionImagenesALabels();
-        
         
         /* Configuración imagenes */
         
-        posicionarElementos();
-        
-        lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblSiguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        posicionarElementos(); 
+        ponerCursorActivoALabels();
         
         /* Se agregan labels al contenido general */
         
         agregarElementosAContenidoGeneral();
-        
-        
+ 
     }
     
     public void cambiarDePagina(){
@@ -113,6 +107,12 @@ public class VistaComoJugar extends JFrame{
         lblCerrar = new JLabel(imagenCerrar);
         lblVolver = new JLabel(imagenVolver);
         lblSiguiente = new JLabel(imagenSiguiente);
+    }
+    
+    public void ponerCursorActivoALabels(){
+        lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblSiguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); 
     }
     
     public void configurarContenidoGeneral(){

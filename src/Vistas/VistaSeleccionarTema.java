@@ -50,33 +50,16 @@ public class VistaSeleccionarTema extends JFrame{
     
     public void iniciarComponentesTema(){
         configurarContenidoGeneral();
-        
-        
-        
-        txtNombre = new JTextField();
-        
-        /* Configuración imagenes */
-        
-        posicionarElementos();
-        
-        
-        lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblAnimales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblFrutas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblColores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblIngresaNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        asignacionImagenesALabels();
         
         /* Nombre */
         
-        txtNombre.setBounds(410, 280, 470, 80);
-        txtNombre.setHorizontalAlignment(JTextField.CENTER);
-        txtNombre.setBorder(null);
-        txtNombre.setForeground(Color.GRAY);
-        txtNombre.setFont(new Font("arial", Font.BOLD, 30)); 
+        configurarEntradaDeTexto();
         
+        /* Configuración imagenes */
         
+        posicionarElementos(); 
+        ponerCursorActivoALabels();
         
         /* Se agregan labels al contenido general */
         
@@ -240,6 +223,16 @@ public class VistaSeleccionarTema extends JFrame{
         
     }
     
+    public void ponerCursorActivoALabels(){
+        lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblAnimales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblFrutas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblColores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblIngresaNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    }
+    
     public void configurarContenidoGeneral(){
         jpContenidoGeneral = new JPanel();
         jpContenidoGeneral.setBounds(0,0,1024,640);
@@ -268,6 +261,17 @@ public class VistaSeleccionarTema extends JFrame{
         jpContenidoGeneral.add(lblIngresaNombre); 
         jpContenidoGeneral.add(lblIniciar);  
         jpContenidoGeneral.add(lblTema);
+    }
+    
+    public void configurarEntradaDeTexto(){
+        txtNombre = new JTextField();
+        
+        txtNombre.setBounds(410, 280, 470, 80);
+        txtNombre.setHorizontalAlignment(JTextField.CENTER);
+        txtNombre.setBorder(null);
+        txtNombre.setForeground(Color.GRAY);
+        txtNombre.setFont(new Font("arial", Font.BOLD, 30)); 
+        
     }
     
     

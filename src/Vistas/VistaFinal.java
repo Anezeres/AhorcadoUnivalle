@@ -46,26 +46,13 @@ public class VistaFinal extends JFrame{
         asignacionImagenesALabels();
         
         
-        lblGanadas = new JLabel();
-        lblJugadas = new JLabel();
-        lblPerdidas = new JLabel();
-        lblNombre = new JLabel();
-        
-        lblNombre.setForeground(Color.WHITE);
-        lblNombre.setFont(new Font("arial", Font.BOLD, 30));
-        lblPerdidas.setForeground(Color.WHITE);
-        lblPerdidas.setFont(new Font("arial", Font.BOLD, 30));
-        lblJugadas.setForeground(Color.WHITE);
-        lblJugadas.setFont(new Font("arial", Font.BOLD, 30));
-        lblGanadas.setForeground(Color.WHITE);
-        lblGanadas.setFont(new Font("arial", Font.BOLD, 30));
+        configurarLabelsDeTexto();
         
         /* Configuración imagenes */
         
         posicionarElementos();
         
-        lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ponerCursorActivoALabels();
         
         agregarElementosAContenidoGeneral();
         
@@ -124,6 +111,12 @@ public class VistaFinal extends JFrame{
         
     }
     
+    public void ponerCursorActivoALabels(){
+        lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        
+    }
+    
     public void configurarContenidoGeneral(){
         jpContenidoGeneral = new JPanel();
         jpContenidoGeneral.setBounds(0,0,1024,640);
@@ -149,6 +142,22 @@ public class VistaFinal extends JFrame{
         jpContenidoGeneral.add(lblPerdidas);
         jpContenidoGeneral.add(lblJugadas);
         jpContenidoGeneral.add(lblFinal);
+    }
+    
+    public void configurarLabelsDeTexto(){
+        lblGanadas = new JLabel();
+        lblJugadas = new JLabel();
+        lblPerdidas = new JLabel();
+        lblNombre = new JLabel();
+        
+        lblNombre.setForeground(Color.WHITE);
+        lblNombre.setFont(new Font("arial", Font.BOLD, 30));
+        lblPerdidas.setForeground(Color.WHITE);
+        lblPerdidas.setFont(new Font("arial", Font.BOLD, 30));
+        lblJugadas.setForeground(Color.WHITE);
+        lblJugadas.setFont(new Font("arial", Font.BOLD, 30));
+        lblGanadas.setForeground(Color.WHITE);
+        lblGanadas.setFont(new Font("arial", Font.BOLD, 30));
     }
     
     

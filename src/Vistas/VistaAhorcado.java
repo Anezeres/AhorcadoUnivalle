@@ -51,7 +51,6 @@ public class VistaAhorcado extends JFrame{
     
     public void iniciarComponentesAhorcado(){
         configurarContenidoGeneral();
-        
         asignacionImagenesALabels();
         
         llenarArrayIconosLetras("Activas");
@@ -60,22 +59,12 @@ public class VistaAhorcado extends JFrame{
         
         asignarLabelsLetras();
         llenarArrayLabelsLetras();
-        
-        
-        lblNombre = new JLabel();
-        lblIntentos = new JLabel("0");
-        
-        lblNombre.setForeground(Color.WHITE);
-        lblNombre.setFont(new Font("arial", Font.BOLD, 30));
-        lblIntentos.setForeground(Color.WHITE);
-        lblIntentos.setFont(new Font("arial", Font.BOLD, 30));
+        configurarLabelsDeTexto();
         
         /* Configuración imagenes */
         
         indicarPosicionLetras();
-        
         posicionarElementos();
-        
         ponerCursorActivoALetras();
         
         /* Se agregan labels al contenido general */
@@ -368,6 +357,16 @@ public class VistaAhorcado extends JFrame{
         
     }
     
+    public void configurarLabelsDeTexto(){
+        lblNombre = new JLabel();
+        lblIntentos = new JLabel("0");
+        
+        lblNombre.setForeground(Color.WHITE);
+        lblNombre.setFont(new Font("arial", Font.BOLD, 30));
+        lblIntentos.setForeground(Color.WHITE);
+        lblIntentos.setFont(new Font("arial", Font.BOLD, 30));    
+    }
+    
     public void configurarContenidoGeneral(){
         jpContenidoGeneral = new JPanel();
         jpContenidoGeneral.setBounds(0,0,1024,640);
@@ -388,6 +387,8 @@ public class VistaAhorcado extends JFrame{
         jpContenidoGeneral.add(lblAhorcado);
         jpContenidoGeneral.add(lblFondoAhorcado);
     }
+    
+    
      
  
 }

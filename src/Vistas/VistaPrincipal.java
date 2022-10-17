@@ -39,18 +39,13 @@ public class VistaPrincipal extends JFrame{
     
     public void iniciarComponentesLogin(){
         configurarContenidoGeneral();
-        
         asignacionImagenesALabels();
         
         
         /* Configuración imagenes */
         
         posicionarElementos();
-        
-        lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblBeneficios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblComoJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ponerCursorActivoALabels();
         
         /* Se agregan labels al contenido general */
         
@@ -109,6 +104,14 @@ public class VistaPrincipal extends JFrame{
         lblJugar = new JLabel(imagenJugar);
         lblBeneficios = new JLabel(imagenBeneficios);
         lblCerrar = new JLabel(imagenCerrar);
+    }
+    
+    public void ponerCursorActivoALabels(){
+        lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblBeneficios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblComoJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        
     }
     
     public void configurarContenidoGeneral(){
