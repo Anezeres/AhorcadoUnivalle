@@ -42,23 +42,8 @@ public class VistaFinal extends JFrame{
     }
     
     public void iniciarComponentesFinal(){
-        jpContenidoGeneral = new JPanel();
-        jpContenidoGeneral.setBounds(0, 0, 1024, 640);
-        jpContenidoGeneral.setLayout(null);
-        add(jpContenidoGeneral);
-        
-        
-        /* Cargado de imagenes */
-        
-        Icon imagenFinal = new ImageIcon("src\\Imagenes\\27-Final-img.gif");
-        Icon imagenVolver = new ImageIcon("src\\Imagenes\\13-Volver-img.gif");
-        Icon imagenCerrar = new ImageIcon("src\\Imagenes\\04-Cerrar-img.gif");
-        
-        /* Inicializacion de imagenes */
-        
-        lblCerrar = new JLabel(imagenCerrar);
-        lblVolver = new JLabel(imagenVolver);
-        lblFinal = new JLabel(imagenFinal);
+        configurarContenidoGeneral(); 
+        asignacionImagenesALabels();
         
         
         lblGanadas = new JLabel();
@@ -77,24 +62,12 @@ public class VistaFinal extends JFrame{
         
         /* Configuración imagenes */
         
-        lblNombre.setBounds(250, 230 , 500, 50);
-        lblJugadas.setBounds(465, 330 , 500, 50);
-        lblGanadas.setBounds(531, 430 , 500, 50);
-        lblPerdidas.setBounds(531, 530 , 500, 50);
-        lblFinal.setBounds(0,0,1024,640);
-        lblCerrar.setBounds(930,10,240,80);
-        lblVolver.setBounds(-150,10,240,80);
+        posicionarElementos();
         
         lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         
-        jpContenidoGeneral.add(lblNombre);
-        jpContenidoGeneral.add(lblCerrar);
-        jpContenidoGeneral.add(lblVolver);
-        jpContenidoGeneral.add(lblGanadas);
-        jpContenidoGeneral.add(lblPerdidas);
-        jpContenidoGeneral.add(lblJugadas);
-        jpContenidoGeneral.add(lblFinal);
+        agregarElementosAContenidoGeneral();
         
     }
     
@@ -134,7 +107,49 @@ public class VistaFinal extends JFrame{
         return lblVolver;
     }
     
+    /* Metodos repetitivos */
     
+    public void asignacionImagenesALabels(){
+        /* Cargado de imagenes */
+        
+        Icon imagenFinal = new ImageIcon("src\\Imagenes\\27-Final-img.gif");
+        Icon imagenVolver = new ImageIcon("src\\Imagenes\\13-Volver-img.gif");
+        Icon imagenCerrar = new ImageIcon("src\\Imagenes\\04-Cerrar-img.gif");
+        
+        /* Inicializacion de imagenes */
+        
+        lblCerrar = new JLabel(imagenCerrar);
+        lblVolver = new JLabel(imagenVolver);
+        lblFinal = new JLabel(imagenFinal);
+        
+    }
+    
+    public void configurarContenidoGeneral(){
+        jpContenidoGeneral = new JPanel();
+        jpContenidoGeneral.setBounds(0,0,1024,640);
+        jpContenidoGeneral.setLayout(null);
+        add(jpContenidoGeneral);
+    }   
+    
+    public void posicionarElementos(){
+        lblNombre.setBounds(250, 230 , 500, 50);
+        lblJugadas.setBounds(465, 330 , 500, 50);
+        lblGanadas.setBounds(531, 430 , 500, 50);
+        lblPerdidas.setBounds(531, 530 , 500, 50);
+        lblFinal.setBounds(0,0,1024,640);
+        lblCerrar.setBounds(930,10,240,80);
+        lblVolver.setBounds(-150,10,240,80);
+    }
+    
+    public void agregarElementosAContenidoGeneral(){
+        jpContenidoGeneral.add(lblNombre);
+        jpContenidoGeneral.add(lblCerrar);
+        jpContenidoGeneral.add(lblVolver);
+        jpContenidoGeneral.add(lblGanadas);
+        jpContenidoGeneral.add(lblPerdidas);
+        jpContenidoGeneral.add(lblJugadas);
+        jpContenidoGeneral.add(lblFinal);
+    }
     
     
     

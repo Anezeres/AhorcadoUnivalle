@@ -49,43 +49,15 @@ public class VistaSeleccionarTema extends JFrame{
     }
     
     public void iniciarComponentesTema(){
-        jpContenidoGeneral = new JPanel();
-        jpContenidoGeneral.setBounds(0, 0, 1024, 640);
-        jpContenidoGeneral.setLayout(null);
-        add(jpContenidoGeneral);
+        configurarContenidoGeneral();
         
-        /* Cargado de imagenes */
         
-        Icon imagenCerrar = new ImageIcon("src\\Imagenes\\04-Cerrar-img.gif");
-        Icon imagenAnimales = new ImageIcon("src\\Imagenes\\05-Animales-img.gif");
-        Icon imagenColores = new ImageIcon("src\\Imagenes\\07-Colores-img.gif");
-        Icon imagenFrutas = new ImageIcon("src\\Imagenes\\09-Frutas-img.gif");
-        Icon imagenTema = new ImageIcon("src\\Imagenes\\12-SeleccionarTema-img.gif");
-        Icon imagenVolver = new ImageIcon("src\\Imagenes\\13-Volver-img.gif");
-        
-        /* Inicializacion de imagenes */
-        
-        lblCerrar = new JLabel(imagenCerrar);
-        lblVolver = new JLabel(imagenVolver);
-        lblAnimales = new JLabel(imagenAnimales);
-        lblColores = new JLabel(imagenColores);
-        lblFrutas = new JLabel(imagenFrutas);
-        lblTema = new JLabel(imagenTema);
-        lblIngresaNombre = new JLabel();
-        lblIniciar = new JLabel();
         
         txtNombre = new JTextField();
         
         /* Configuración imagenes */
         
-        lblTema.setBounds(0,0,1024,640);
-        lblAnimales.setBounds(280,400,240,80);
-        lblColores.setBounds(520,400,240,80);
-        lblFrutas.setBounds(760, 400, 240, 80);
-        lblCerrar.setBounds(930,10,240,80);
-        lblVolver.setBounds(-150,10,240,80);
-        lblIngresaNombre.setBounds(30,530,240,80);
-        lblIniciar.setBounds(760,530,240,80);
+        posicionarElementos();
         
         
         lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -108,15 +80,7 @@ public class VistaSeleccionarTema extends JFrame{
         
         /* Se agregan labels al contenido general */
         
-        jpContenidoGeneral.add(txtNombre);
-        jpContenidoGeneral.add(lblCerrar);
-        jpContenidoGeneral.add(lblVolver);
-        jpContenidoGeneral.add(lblAnimales);
-        jpContenidoGeneral.add(lblColores);
-        jpContenidoGeneral.add(lblFrutas);
-        jpContenidoGeneral.add(lblIngresaNombre); 
-        jpContenidoGeneral.add(lblIniciar);  
-        jpContenidoGeneral.add(lblTema);
+        agregarElementosAContenidoGeneral();
             
     }
     
@@ -250,6 +214,61 @@ public class VistaSeleccionarTema extends JFrame{
         this.frutasActivo = frutasActivo;
     }
     
+    
+    /* Metodos repetitivos */
+    
+    public void asignacionImagenesALabels(){
+        /* Cargado de imagenes */
+        
+        Icon imagenCerrar = new ImageIcon("src\\Imagenes\\04-Cerrar-img.gif");
+        Icon imagenAnimales = new ImageIcon("src\\Imagenes\\05-Animales-img.gif");
+        Icon imagenColores = new ImageIcon("src\\Imagenes\\07-Colores-img.gif");
+        Icon imagenFrutas = new ImageIcon("src\\Imagenes\\09-Frutas-img.gif");
+        Icon imagenTema = new ImageIcon("src\\Imagenes\\12-SeleccionarTema-img.gif");
+        Icon imagenVolver = new ImageIcon("src\\Imagenes\\13-Volver-img.gif");
+        
+        /* Inicializacion de imagenes */
+        
+        lblCerrar = new JLabel(imagenCerrar);
+        lblVolver = new JLabel(imagenVolver);
+        lblAnimales = new JLabel(imagenAnimales);
+        lblColores = new JLabel(imagenColores);
+        lblFrutas = new JLabel(imagenFrutas);
+        lblTema = new JLabel(imagenTema);
+        lblIngresaNombre = new JLabel();
+        lblIniciar = new JLabel();
+        
+    }
+    
+    public void configurarContenidoGeneral(){
+        jpContenidoGeneral = new JPanel();
+        jpContenidoGeneral.setBounds(0,0,1024,640);
+        jpContenidoGeneral.setLayout(null);
+        add(jpContenidoGeneral);
+    }   
+    
+    public void posicionarElementos(){
+        lblTema.setBounds(0,0,1024,640);
+        lblAnimales.setBounds(280,400,240,80);
+        lblColores.setBounds(520,400,240,80);
+        lblFrutas.setBounds(760, 400, 240, 80);
+        lblCerrar.setBounds(930,10,240,80);
+        lblVolver.setBounds(-150,10,240,80);
+        lblIngresaNombre.setBounds(30,530,240,80);
+        lblIniciar.setBounds(760,530,240,80);
+    }
+    
+    public void agregarElementosAContenidoGeneral(){
+        jpContenidoGeneral.add(txtNombre);
+        jpContenidoGeneral.add(lblCerrar);
+        jpContenidoGeneral.add(lblVolver);
+        jpContenidoGeneral.add(lblAnimales);
+        jpContenidoGeneral.add(lblColores);
+        jpContenidoGeneral.add(lblFrutas);
+        jpContenidoGeneral.add(lblIngresaNombre); 
+        jpContenidoGeneral.add(lblIniciar);  
+        jpContenidoGeneral.add(lblTema);
+    }
     
     
     

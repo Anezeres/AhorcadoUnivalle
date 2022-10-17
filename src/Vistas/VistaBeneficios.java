@@ -35,35 +35,21 @@ public class VistaBeneficios extends JFrame{
     }
     
     public void iniciarComponentesComoJugar(){
-        jpContenidoGeneral = new JPanel();
-        jpContenidoGeneral.setBounds(0,0,1024,640);
-        jpContenidoGeneral.setLayout(null);
-        add(jpContenidoGeneral);
+        configurarContenidoGeneral();
         
-        /* Cargado de imagenes */
-        Icon imagenBeneficios = new ImageIcon("src\\Imagenes\\26-Beneficios-img.gif");
-        Icon imagenCerrar = new ImageIcon("src\\Imagenes\\04-Cerrar-img.gif");
-        Icon imagenVolver = new ImageIcon("src\\Imagenes\\13-Volver-img.gif");
-        
-        lblBeneficios = new JLabel(imagenBeneficios);
-        lblCerrar = new JLabel(imagenCerrar);
-        lblVolver = new JLabel(imagenVolver);
+        asignacionImagenesALabels();
         
         
         /* Configuración imagenes */
         
-        lblBeneficios.setBounds(0,0,1024,640);
-        lblCerrar.setBounds(930,10,240,80);
-        lblVolver.setBounds(-150,10,240,80);
+        posicionarElementos();
         
         lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         
         /* Se agregan labels al contenido general */
         
-        jpContenidoGeneral.add(lblCerrar);
-        jpContenidoGeneral.add(lblVolver);
-        jpContenidoGeneral.add(lblBeneficios);
+        agregarElementosAContenidoGeneral();
         
     }
     
@@ -85,6 +71,39 @@ public class VistaBeneficios extends JFrame{
 
     public JLabel getLblVolver() {
         return lblVolver;
+    }
+    
+    
+    /* Metodos repetitivos */
+    
+    public void asignacionImagenesALabels(){
+        /* Cargado de imagenes */
+        Icon imagenBeneficios = new ImageIcon("src\\Imagenes\\26-Beneficios-img.gif");
+        Icon imagenCerrar = new ImageIcon("src\\Imagenes\\04-Cerrar-img.gif");
+        Icon imagenVolver = new ImageIcon("src\\Imagenes\\13-Volver-img.gif");
+        
+        lblBeneficios = new JLabel(imagenBeneficios);
+        lblCerrar = new JLabel(imagenCerrar);
+        lblVolver = new JLabel(imagenVolver);
+    }
+    
+    public void configurarContenidoGeneral(){
+        jpContenidoGeneral = new JPanel();
+        jpContenidoGeneral.setBounds(0,0,1024,640);
+        jpContenidoGeneral.setLayout(null);
+        add(jpContenidoGeneral);
+    }   
+    
+    public void posicionarElementos(){
+        lblBeneficios.setBounds(0,0,1024,640);
+        lblCerrar.setBounds(930,10,240,80);
+        lblVolver.setBounds(-150,10,240,80); 
+    }
+    
+    public void agregarElementosAContenidoGeneral(){
+        jpContenidoGeneral.add(lblCerrar);
+        jpContenidoGeneral.add(lblVolver);
+        jpContenidoGeneral.add(lblBeneficios);
     }
     
 }

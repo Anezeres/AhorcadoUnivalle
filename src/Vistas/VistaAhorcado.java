@@ -50,27 +50,18 @@ public class VistaAhorcado extends JFrame{
     }
     
     public void iniciarComponentesAhorcado(){
-        jpContenidoGeneral = new JPanel();
-        jpContenidoGeneral.setBounds(0, 0, 1024, 640);
-        jpContenidoGeneral.setLayout(null);
-        add(jpContenidoGeneral);
+        configurarContenidoGeneral();
         
-        /* Cargado de imagenes */
-        
-        Icon imagenFondo = new ImageIcon("src\\Imagenes\\Fondo\\00-FondoAhorcado6-img.gif");
-        Icon imagenAhorcado = new ImageIcon("src\\Imagenes\\ImagenesAhorcado\\00-Ahorcado1-img.gif");
+        asignacionImagenesALabels();
         
         llenarArrayIconosLetras("Activas");
         llenarArrayIconosLetras("Inactivas");
         llenarArrayIconosLetras("Correctas");
         
-        /* Inicializacion de imagenes */
-        
         asignarLabelsLetras();
         llenarArrayLabelsLetras();
         
-        lblAhorcado = new JLabel(imagenAhorcado);
-        lblFondoAhorcado = new JLabel(imagenFondo);
+        
         lblNombre = new JLabel();
         lblIntentos = new JLabel("0");
         
@@ -83,20 +74,14 @@ public class VistaAhorcado extends JFrame{
         
         indicarPosicionLetras();
         
-        lblNombre.setBounds(560, 9 , 500, 50);
-        lblIntentos.setBounds(930, 9 , 500, 50);
-        lblAhorcado.setBounds(0, 0, 370, 640);
-        lblFondoAhorcado.setBounds(0,0,1024,640);
+        posicionarElementos();
         
         ponerCursorActivoALetras();
         
         /* Se agregan labels al contenido general */
         
         colocarLetrasEnVista();
-        jpContenidoGeneral.add(lblIntentos);
-        jpContenidoGeneral.add(lblNombre);
-        jpContenidoGeneral.add(lblAhorcado);
-        jpContenidoGeneral.add(lblFondoAhorcado);
+        agregarElementosAContenidoGeneral();
     }
     
     public void indicarPosicionLetras(){
@@ -365,6 +350,43 @@ public class VistaAhorcado extends JFrame{
     
     public void setIntentos(int numeroIntentos){
         lblIntentos.setText(String.valueOf(numeroIntentos));
+    }
+    
+    
+    /* Metodos repetitivos */
+    
+    public void asignacionImagenesALabels(){
+        /* Cargado de imagenes */
+        
+        Icon imagenFondo = new ImageIcon("src\\Imagenes\\Fondo\\00-FondoAhorcado6-img.gif");
+        Icon imagenAhorcado = new ImageIcon("src\\Imagenes\\ImagenesAhorcado\\00-Ahorcado1-img.gif");
+
+        /* Inicializacion de imagenes */
+        
+        lblAhorcado = new JLabel(imagenAhorcado);
+        lblFondoAhorcado = new JLabel(imagenFondo);
+        
+    }
+    
+    public void configurarContenidoGeneral(){
+        jpContenidoGeneral = new JPanel();
+        jpContenidoGeneral.setBounds(0,0,1024,640);
+        jpContenidoGeneral.setLayout(null);
+        add(jpContenidoGeneral);
+    }   
+    
+    public void posicionarElementos(){
+        lblNombre.setBounds(560, 9 , 500, 50);
+        lblIntentos.setBounds(930, 9 , 500, 50);
+        lblAhorcado.setBounds(0, 0, 370, 640);
+        lblFondoAhorcado.setBounds(0,0,1024,640);
+    }
+    
+    public void agregarElementosAContenidoGeneral(){
+        jpContenidoGeneral.add(lblIntentos);
+        jpContenidoGeneral.add(lblNombre);
+        jpContenidoGeneral.add(lblAhorcado);
+        jpContenidoGeneral.add(lblFondoAhorcado);
     }
      
  

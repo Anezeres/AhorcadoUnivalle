@@ -39,29 +39,14 @@ public class VistaComoJugar extends JFrame{
     }
     
     public void iniciarComponentesComoJugar(){
-        jpContenidoGeneral = new JPanel();
-        jpContenidoGeneral.setBounds(0,0,1024,640);
-        jpContenidoGeneral.setLayout(null);
-        add(jpContenidoGeneral);
+        configurarContenidoGeneral();
         
-        /* Cargado de imagenes */
-        Icon imagenPaso = new ImageIcon("src\\Imagenes\\ComoJugar\\00-ComoJugar1-img.gif");
-        Icon imagenCerrar = new ImageIcon("src\\Imagenes\\04-Cerrar-img.gif");
-        Icon imagenVolver = new ImageIcon("src\\Imagenes\\13-Volver-img.gif");
-        Icon imagenSiguiente = new ImageIcon("src\\Imagenes\\25-Siguiente-img.gif");
-        
-        lblPaso = new JLabel(imagenPaso);
-        lblCerrar = new JLabel(imagenCerrar);
-        lblVolver = new JLabel(imagenVolver);
-        lblSiguiente = new JLabel(imagenSiguiente);
+        asignacionImagenesALabels();
         
         
         /* Configuración imagenes */
         
-        lblPaso.setBounds(0,0,1024,640);
-        lblCerrar.setBounds(930,10,240,80);
-        lblSiguiente.setBounds(930,430,240,80);
-        lblVolver.setBounds(-150,10,240,80);
+        posicionarElementos();
         
         lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSiguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -69,10 +54,7 @@ public class VistaComoJugar extends JFrame{
         
         /* Se agregan labels al contenido general */
         
-        jpContenidoGeneral.add(lblCerrar);
-        jpContenidoGeneral.add(lblVolver);
-        jpContenidoGeneral.add(lblSiguiente);
-        jpContenidoGeneral.add(lblPaso);
+        agregarElementosAContenidoGeneral();
         
         
     }
@@ -116,6 +98,42 @@ public class VistaComoJugar extends JFrame{
     
     public JLabel getLblSiguiente(){
         return lblSiguiente;
+    }
+    
+    /* Metodos repetitivos */
+    
+    public void asignacionImagenesALabels(){
+        /* Cargado de imagenes */
+        Icon imagenPaso = new ImageIcon("src\\Imagenes\\ComoJugar\\00-ComoJugar1-img.gif");
+        Icon imagenCerrar = new ImageIcon("src\\Imagenes\\04-Cerrar-img.gif");
+        Icon imagenVolver = new ImageIcon("src\\Imagenes\\13-Volver-img.gif");
+        Icon imagenSiguiente = new ImageIcon("src\\Imagenes\\25-Siguiente-img.gif");
+        
+        lblPaso = new JLabel(imagenPaso);
+        lblCerrar = new JLabel(imagenCerrar);
+        lblVolver = new JLabel(imagenVolver);
+        lblSiguiente = new JLabel(imagenSiguiente);
+    }
+    
+    public void configurarContenidoGeneral(){
+        jpContenidoGeneral = new JPanel();
+        jpContenidoGeneral.setBounds(0,0,1024,640);
+        jpContenidoGeneral.setLayout(null);
+        add(jpContenidoGeneral);
+    }   
+    
+    public void posicionarElementos(){
+        lblPaso.setBounds(0,0,1024,640);
+        lblCerrar.setBounds(930,10,240,80);
+        lblSiguiente.setBounds(930,430,240,80);
+        lblVolver.setBounds(-150,10,240,80); 
+    }
+    
+    public void agregarElementosAContenidoGeneral(){
+        jpContenidoGeneral.add(lblCerrar);
+        jpContenidoGeneral.add(lblVolver);
+        jpContenidoGeneral.add(lblSiguiente);
+        jpContenidoGeneral.add(lblPaso);
     }
     
     

@@ -38,35 +38,14 @@ public class VistaPrincipal extends JFrame{
     }
     
     public void iniciarComponentesLogin(){
-        jpContenidoGeneral = new JPanel();
-        jpContenidoGeneral.setBounds(0,0,1024,640);
-        jpContenidoGeneral.setLayout(null);
-        add(jpContenidoGeneral);
+        configurarContenidoGeneral();
         
-        /* Cargado de imagenes */
-        Icon imagenTitlePrincipal = new ImageIcon("src\\Imagenes\\00-Ahorcado3000-img.gif");
-        Icon imagenComoJugar = new ImageIcon("src\\Imagenes\\01-ComoJugar-img.gif");
-        Icon imagenJugar = new ImageIcon("src\\Imagenes\\02-Jugar-img.gif");
-        Icon imagenBeneficios = new ImageIcon("src\\Imagenes\\03-Beneficios-img.gif");
-        Icon imagenCerrar = new ImageIcon("src\\Imagenes\\04-Cerrar-img.gif");
-        
-        /* Inicializacion de imagenes */
-        
-        lblTitle = new JLabel(imagenTitlePrincipal);
-        lblComoJugar = new JLabel(imagenComoJugar);
-        lblJugar = new JLabel(imagenJugar);
-        lblBeneficios = new JLabel(imagenBeneficios);
-        lblCerrar = new JLabel(imagenCerrar);
+        asignacionImagenesALabels();
         
         
         /* Configuración imagenes */
         
-        
-        lblTitle.setBounds(0,0,1024,640);
-        lblComoJugar.setBounds(30,450,240,80);
-        lblJugar.setBounds(280,450,240,80);
-        lblBeneficios.setBounds(530,450,240,80);
-        lblCerrar.setBounds(930,10,240,80);
+        posicionarElementos();
         
         lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -75,11 +54,7 @@ public class VistaPrincipal extends JFrame{
         
         /* Se agregan labels al contenido general */
         
-        jpContenidoGeneral.add(lblComoJugar);
-        jpContenidoGeneral.add(lblCerrar);
-        jpContenidoGeneral.add(lblJugar);
-        jpContenidoGeneral.add(lblBeneficios);
-        jpContenidoGeneral.add(lblTitle);
+        agregarElementosAContenidoGeneral();
 
     }
     
@@ -116,6 +91,50 @@ public class VistaPrincipal extends JFrame{
     public JLabel getBeneficios(){
         return lblBeneficios;
     }
+    
+    /* Metodos repetitivos */
+    
+    public void asignacionImagenesALabels(){
+        /* Cargado de imagenes */
+        Icon imagenTitlePrincipal = new ImageIcon("src\\Imagenes\\00-Ahorcado3000-img.gif");
+        Icon imagenComoJugar = new ImageIcon("src\\Imagenes\\01-ComoJugar-img.gif");
+        Icon imagenJugar = new ImageIcon("src\\Imagenes\\02-Jugar-img.gif");
+        Icon imagenBeneficios = new ImageIcon("src\\Imagenes\\03-Beneficios-img.gif");
+        Icon imagenCerrar = new ImageIcon("src\\Imagenes\\04-Cerrar-img.gif");
+        
+        /* Inicializacion de imagenes */
+        
+        lblTitle = new JLabel(imagenTitlePrincipal);
+        lblComoJugar = new JLabel(imagenComoJugar);
+        lblJugar = new JLabel(imagenJugar);
+        lblBeneficios = new JLabel(imagenBeneficios);
+        lblCerrar = new JLabel(imagenCerrar);
+    }
+    
+    public void configurarContenidoGeneral(){
+        jpContenidoGeneral = new JPanel();
+        jpContenidoGeneral.setBounds(0,0,1024,640);
+        jpContenidoGeneral.setLayout(null);
+        add(jpContenidoGeneral);
+    }
+    
+    public void posicionarElementos(){
+        lblTitle.setBounds(0,0,1024,640);
+        lblComoJugar.setBounds(30,450,240,80);
+        lblJugar.setBounds(280,450,240,80);
+        lblBeneficios.setBounds(530,450,240,80);
+        lblCerrar.setBounds(930,10,240,80);
+    }
+    
+    public void agregarElementosAContenidoGeneral(){
+        jpContenidoGeneral.add(lblComoJugar);
+        jpContenidoGeneral.add(lblCerrar);
+        jpContenidoGeneral.add(lblJugar);
+        jpContenidoGeneral.add(lblBeneficios);
+        jpContenidoGeneral.add(lblTitle);
+    }
+    
+    
     
 }
 
