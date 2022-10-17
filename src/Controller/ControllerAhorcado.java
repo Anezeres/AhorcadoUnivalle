@@ -6,6 +6,7 @@ package Controller;
 
 import Modelo.ModeloPrincipal;
 import Vistas.VistaAhorcado;
+import Vistas.VistaFinal;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
@@ -30,6 +31,7 @@ public final class ControllerAhorcado {
         vistaAhorcado.cambiarFondoSegunSizePalabra(sizePalabra);
         vistaAhorcado.setNombre(modelo.getJugador().getNombre());
         vistaAhorcado.setIntentos(modelo.getJugador().getNumeroIntentos());
+        modelo.getJugador().setPartidasJugadas(modelo.getJugador().getPartidasJugadas() + 1);
         agregarControllers();
     }
     
@@ -53,26 +55,36 @@ public final class ControllerAhorcado {
                     vistaAhorcado.agregarLetraSeleccionada(modelo.getRonda().getPosicionDeLetra() + 1, sizePalabra, (JLabel) event.getSource());
                     
                     if(modelo.validarFraseCompleta()){
-                        System.out.println("Hola");
-                        System.out.println("Ya completaste la frase");
+                        modelo.getJugador().setPartidasGanadas(modelo.getJugador().getPartidasGanadas() + 1);
+                    
+                        if (JOptionPane.showConfirmDialog(null, "¿Quieres seguir jugando?", "Mensaje", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                            vistaAhorcado.dispose();
+                            
+                        }else{
+                            vistaAhorcado.dispose();
+                            VistaFinal vistaFinal = new VistaFinal();
+                            ControllerFinal controllerFinal = new ControllerFinal(modelo, vistaFinal);
+                        }
+             
                     }else{
-                        
-                
                         
                         if(resultado){
                             vistaAhorcado.ponerLetraInactiva( vistaAhorcado.saberLetraPresionada((JLabel) event.getSource()));                       
                         }
                         
-                        System.out.println("Letra pintada: "+ modelo.getRonda().getPosicionDeLetra());
+                        
                         vistaAhorcado.cambiarImagenAhorcadoError(modelo.getJugador().getConteoErrores() + 1);
                         vistaAhorcado.setIntentos(modelo.getJugador().getNumeroIntentos());
+                        
+                        
                     }
                     
                     
                 }else{
                     vistaAhorcado.dispose();
-                    System.out.println("Perdite el juego");
-                    
+                    modelo.getJugador().setPartidasPerdidas(modelo.getJugador().getPartidasPerdidas() + 1);
+                    VistaFinal vistaFinal = new VistaFinal();
+                    ControllerFinal controllerFinal = new ControllerFinal(modelo, vistaFinal);
                 }
                 
             }

@@ -17,6 +17,9 @@ public class Jugador {
     private String clave;
     private int conteoErrores;
     private int numeroIntentos;
+    private int partidasJugadas;
+    private int partidasPerdidas;
+    private int partidasGanadas;
     private int porcentaje;
     public boolean fallo, ganar;
 
@@ -42,9 +45,15 @@ public class Jugador {
         }
         return ganar;
     }
+    
+    
 
-    public void porcentaje(){
-        porcentaje = conteoErrores * 10;
+    public float porcentajeGanadas(){
+        return (100*(partidasGanadas/partidasJugadas) );
+    }
+    
+    public float porcentajePerdidas(){
+        return (100*(partidasPerdidas/partidasJugadas) );
     }
 
     public String getClave() {
@@ -90,6 +99,41 @@ public class Jugador {
     public void restarNumeroIntentos() {
         numeroIntentos--;
     }
+
+    public int getPartidasJugadas() {
+        return partidasJugadas;
+    }
+
+    public void setPartidasJugadas(int partidasJugadas) {
+        this.partidasJugadas = partidasJugadas;
+    }
+
+    public int getPartidasPerdidas() {
+        return partidasPerdidas;
+    }
+
+    public void setPartidasPerdidas(int partidasPerdidas) {
+        this.partidasPerdidas = partidasPerdidas;
+    }
+
+    public int getPartidasGanadas() {
+        return partidasGanadas;
+    }
+
+    public void setPartidasGanadas(int partidasGanadas) {
+        this.partidasGanadas = partidasGanadas;
+    }
+
+    @Override
+    public String toString() {
+        return "Jugador{" + "partidasJugadas=" + partidasJugadas + ","
+                + " \npartidasPerdidas=" + partidasPerdidas + ","
+                + " \npartidasGanadas=" + partidasGanadas + '}' + "\nPorcentaje Ganadas: " + porcentajeGanadas() +" \nPorcentaje perdidas: "+ porcentajePerdidas();
+        
+    }
+    
+    
+    
     
     
     

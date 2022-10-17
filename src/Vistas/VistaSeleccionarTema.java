@@ -35,7 +35,6 @@ public class VistaSeleccionarTema extends JFrame{
     private JTextField txtNombre;
     
     private JPanel jpContenidoGeneral;
-    private JLayeredPane nuevoPane;
     
     private boolean animalesActivo = false;
     private boolean coloresActivo = false;
