@@ -12,10 +12,12 @@ public class ModeloPrincipal {
     
     private Jugador jugador;
     private Ronda ronda;
+    private String palabra;
 
     public ModeloPrincipal(Jugador jugador, Ronda ronda) {
         this.jugador = jugador;
         this.ronda = ronda;
+        palabra = "";
     }
     
     public boolean validar(char letra) {
@@ -27,7 +29,7 @@ public class ModeloPrincipal {
         ronda.setPosicionDeLetra(index);
         
         if(index != -1){
-            
+            remplazarCaracterFraseAuxiliar(index);
             while(index > -1){
                 
                 if(index != -1){
@@ -35,8 +37,6 @@ public class ModeloPrincipal {
                 }
                 
                 index = ronda.getFraseActual().indexOf(letra,index  + 1);
-                
-                
                 System.out.println("Valor del Idex dentro del bucle: "+ index);
                 
             }
@@ -50,6 +50,18 @@ public class ModeloPrincipal {
             jugador.restarNumeroIntentos();
         }
         return fallo;
+    }
+    
+    
+
+    public void remplazarCaracterFraseAuxiliar(int index){ 
+        
+        ronda.setPalabraActualAuxiliar(ronda.getPalabraActualAuxiliar().substring(0, index) + ronda.palabraActual.charAt(index)+ ronda.getPalabraActualAuxiliar().substring(index + 1));
+        System.out.println("Palabra Auxiliar: " + ronda.getPalabraActualAuxiliar());
+    }
+    
+    public boolean validarFraseCompleta(){
+        return ronda.getPalabraActualAuxiliar().contains(ronda.getFraseActual());
     }
     
     public void preguntarOtraVez(char letra){

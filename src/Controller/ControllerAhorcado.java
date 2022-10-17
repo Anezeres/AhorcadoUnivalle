@@ -46,21 +46,33 @@ public final class ControllerAhorcado {
         public void mouseClicked(MouseEvent event){
             
             if (event.getSource() == vistaAhorcado.saberSiUnaLetraFuePresionada( (JLabel) event.getSource())){
-                
+                boolean resultado = modelo.validar((""+vistaAhorcado.saberLetraPresionada((JLabel) event.getSource())).toLowerCase().charAt(0));
                 if(modelo.getJugador().getNumeroIntentos() != 1){
-                    int sizePalabra = modelo.getRonda().getSizePalabraActual();;
-                
-                    boolean resultado = modelo.validar((""+vistaAhorcado.saberLetraPresionada((JLabel) event.getSource())).toLowerCase().charAt(0));
-                    if(resultado){
-                        vistaAhorcado.ponerLetraInactiva( vistaAhorcado.saberLetraPresionada((JLabel) event.getSource()));                       
-                    }
+                    
+                    int sizePalabra = modelo.getRonda().getSizePalabraActual();
                     vistaAhorcado.agregarLetraSeleccionada(modelo.getRonda().getPosicionDeLetra() + 1, sizePalabra, (JLabel) event.getSource());
-                    System.out.println("Letra pintada: "+ modelo.getRonda().getPosicionDeLetra());
-                    vistaAhorcado.cambiarImagenAhorcadoError(modelo.getJugador().getConteoErrores() + 1);
-                    vistaAhorcado.setIntentos(modelo.getJugador().getNumeroIntentos());
+                    
+                    if(modelo.validarFraseCompleta()){
+                        System.out.println("Hola");
+                        System.out.println("Ya completaste la frase");
+                    }else{
+                        
+                
+                        
+                        if(resultado){
+                            vistaAhorcado.ponerLetraInactiva( vistaAhorcado.saberLetraPresionada((JLabel) event.getSource()));                       
+                        }
+                        
+                        System.out.println("Letra pintada: "+ modelo.getRonda().getPosicionDeLetra());
+                        vistaAhorcado.cambiarImagenAhorcadoError(modelo.getJugador().getConteoErrores() + 1);
+                        vistaAhorcado.setIntentos(modelo.getJugador().getNumeroIntentos());
+                    }
+                    
+                    
                 }else{
                     vistaAhorcado.dispose();
                     System.out.println("Perdite el juego");
+                    
                 }
                 
             }

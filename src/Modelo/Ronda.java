@@ -24,12 +24,13 @@ public class Ronda {
     int palabrasAdivinadas;
     String temaPartidas;
     String palabraActual;
+    String palabraActualAuxiliar;
     int rondasJugadas; 
     String temaRonda;
     int posicionDeLetra;
   
   public Ronda() {
-    //partidasJugadas = new Jugador();
+    
   }
   
   static Scanner sc = new Scanner(System.in);
@@ -106,6 +107,12 @@ public class Ronda {
     }else{
       System.out.println("Error, digite un número del 1 al 10");
     }
+    
+    palabraActualAuxiliar = "";
+    
+    for(int letra = 0; letra<palabraActual.length();letra++){
+        palabraActualAuxiliar = palabraActualAuxiliar + "-";
+    }
     return palabraActual;
   }
 
@@ -140,6 +147,16 @@ public class Ronda {
     public void setPosicionDeLetra(int posicionDeLetra) {
         this.posicionDeLetra = posicionDeLetra;
     }
+
+    public String getPalabraActualAuxiliar() {
+        return palabraActualAuxiliar;
+    }
+
+    public void setPalabraActualAuxiliar(String palabraActualAuxiliar) {
+        this.palabraActualAuxiliar = palabraActualAuxiliar;
+    }
+    
+    
     
     
     

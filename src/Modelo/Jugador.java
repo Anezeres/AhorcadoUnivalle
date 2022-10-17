@@ -28,26 +28,6 @@ public class Jugador {
 
     }
 
-
-
-    public String dibujarFrase(){
-        //Inicializacion delas variables de la ronda.
-        //Obtener frase
-        frase = "manzana";
-        errores = "Letras Erroneas: ";
-        conteoErrores = 0;
-        //Crear clave
-
-        for(int i=0; i < frase.length(); i++){
-            if(frase.charAt(i) == ' '){
-                clave += frase.charAt(i);
-            } else{
-                clave += "-";
-            }
-        }
-        return clave;
-    }
-
     public void reemplazarLetra(int index, char letra) {
         char[] arrayClave = clave.toCharArray();
         arrayClave[index] = letra;
