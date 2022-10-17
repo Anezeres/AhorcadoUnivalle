@@ -17,7 +17,7 @@ public class Ronda {
     //Array de animales
     String[] animales={"gato", "foca", "leon", "asno", "gorila", "tigre", "atun", "ganso", "erizo", "canguro"};
     //Array de frutas
-    String[] frutas={"melon", "pomelo", "nispero", "mora", "limon", "durazno", "fresa", "mango", "higo", "pera"};
+    String[] frutas={"melon", "nispero", "mora", "limon", "durazno", "fresa", "mango", "higo", "pera"};
   //Atributos
     //Jugador partidasJugadas;
     int numeroPartidas;

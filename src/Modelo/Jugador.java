@@ -27,7 +27,6 @@ public class Jugador {
     public Jugador() {
         frases = new Ronda();
         numeroIntentos = 10;
-        clave = "";
 
     }
 
@@ -68,6 +67,14 @@ public class Jugador {
         return conteoErrores;
     }
     
+    public void setConteoErrores(int inicio) {
+        conteoErrores = inicio;
+    }
+    
+    public void reiniciarErrores(){
+        conteoErrores = 0;
+    }
+    
     public void sumarConteoErrores() {
         conteoErrores++;
     }
@@ -94,6 +101,10 @@ public class Jugador {
 
     public int getNumeroIntentos() {
         return numeroIntentos;
+    }
+    
+    public void reiniciarNumeroIntentos() {
+        numeroIntentos = 10;
     }
 
     public void restarNumeroIntentos() {

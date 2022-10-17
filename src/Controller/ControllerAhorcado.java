@@ -27,10 +27,13 @@ public final class ControllerAhorcado {
         
         vistaAhorcado.iniciarComponentesAhorcado();
         vistaAhorcado.configurarVistaAhorcado();
+        
         int sizePalabra = modelo.getRonda().getSizePalabraActual();
         vistaAhorcado.cambiarFondoSegunSizePalabra(sizePalabra);
+        
         vistaAhorcado.setNombre(modelo.getJugador().getNombre());
         vistaAhorcado.setIntentos(modelo.getJugador().getNumeroIntentos());
+        
         modelo.getJugador().setPartidasJugadas(modelo.getJugador().getPartidasJugadas() + 1);
         agregarControllers();
     }
@@ -55,20 +58,14 @@ public final class ControllerAhorcado {
                     vistaAhorcado.agregarLetraSeleccionada(modelo.getRonda().getPosicionDeLetra() + 1, sizePalabra, (JLabel) event.getSource());
                     
                     if(modelo.validarFraseCompleta()){
-                        modelo.getJugador().setPartidasGanadas(modelo.getJugador().getPartidasGanadas() + 1);
-                    
-                        if (JOptionPane.showConfirmDialog(null, "¿Quieres seguir jugando?", "Mensaje", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                            vistaAhorcado.dispose();
-                            
-                        }else{
-                            vistaAhorcado.dispose();
-                            VistaFinal vistaFinal = new VistaFinal();
-                            ControllerFinal controllerFinal = new ControllerFinal(modelo, vistaFinal);
-                        }
+                        
+                        modelo.getJugador().setPartidasGanadas(modelo.getJugador().getPartidasGanadas() + 1);                
+                        terminarPartida();
              
                     }else{
                         
                         if(resultado){
+                            System.out.println("Hola Inactivo");
                             vistaAhorcado.ponerLetraInactiva( vistaAhorcado.saberLetraPresionada((JLabel) event.getSource()));                       
                         }
                         
@@ -81,14 +78,31 @@ public final class ControllerAhorcado {
                     
                     
                 }else{
-                    vistaAhorcado.dispose();
                     modelo.getJugador().setPartidasPerdidas(modelo.getJugador().getPartidasPerdidas() + 1);
-                    VistaFinal vistaFinal = new VistaFinal();
-                    ControllerFinal controllerFinal = new ControllerFinal(modelo, vistaFinal);
+                    terminarPartida();
+                    
                 }
                 
             }
             
+            
+            
+        }
+        
+        public void terminarPartida(){
+            if (JOptionPane.showConfirmDialog(null, "¿Quieres seguir jugando?", "Mensaje", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                vistaAhorcado.dispose();
+                modelo.getJugador().reiniciarNumeroIntentos();
+                modelo.getJugador().reiniciarErrores();
+                modelo.getRonda().seleccionPalabra();
+                VistaAhorcado vistaAhorcado = new VistaAhorcado();
+                ControllerAhorcado controllerAhorcado = new ControllerAhorcado(modelo,vistaAhorcado);
+                            
+            }else{
+                vistaAhorcado.dispose();
+                VistaFinal vistaFinal = new VistaFinal();
+                ControllerFinal controllerFinal = new ControllerFinal(modelo, vistaFinal);
+            }
         }
         
     }
