@@ -26,9 +26,10 @@ public final class ControllerAhorcado {
         
         vistaAhorcado.iniciarComponentesAhorcado();
         vistaAhorcado.configurarVistaAhorcado();
-        int sizePalabra = 4;
+        int sizePalabra = modelo.getRonda().getSizePalabraActual();
         vistaAhorcado.cambiarFondoSegunSizePalabra(sizePalabra);
-        vistaAhorcado.setNombre("Andres Del Carmen de los Santos");
+        vistaAhorcado.setNombre(modelo.getJugador().getNombre());
+        vistaAhorcado.setIntentos(modelo.getJugador().getNumeroIntentos());
         agregarControllers();
     }
     
@@ -45,11 +46,22 @@ public final class ControllerAhorcado {
         public void mouseClicked(MouseEvent event){
             
             if (event.getSource() == vistaAhorcado.saberSiUnaLetraFuePresionada( (JLabel) event.getSource())){
-                int sizePalabra = 4;
                 
-                //vistaAhorcado.ponerLetraInactiva( vistaAhorcado.saberLetraPresionada((JLabel) event.getSource()));
-                vistaAhorcado.agregarLetraSeleccionada(3, sizePalabra, (JLabel) event.getSource());
-                vistaAhorcado.cambiarImagenAhorcadoError(1);
+                if(modelo.getJugador().getNumeroIntentos() != 1){
+                    int sizePalabra = modelo.getRonda().getSizePalabraActual();;
+                
+                    boolean resultado = modelo.validar((""+vistaAhorcado.saberLetraPresionada((JLabel) event.getSource())).toLowerCase().charAt(0));
+                    if(resultado){
+                        vistaAhorcado.ponerLetraInactiva( vistaAhorcado.saberLetraPresionada((JLabel) event.getSource()));                       
+                    }
+                    vistaAhorcado.agregarLetraSeleccionada(modelo.getRonda().getPosicionDeLetra() + 1, sizePalabra, (JLabel) event.getSource());
+                    System.out.println("Letra pintada: "+ modelo.getRonda().getPosicionDeLetra());
+                    vistaAhorcado.cambiarImagenAhorcadoError(modelo.getJugador().getConteoErrores() + 1);
+                    vistaAhorcado.setIntentos(modelo.getJugador().getNumeroIntentos());
+                }else{
+                    vistaAhorcado.dispose();
+                    System.out.println("Perdite el juego");
+                }
                 
             }
             

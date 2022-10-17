@@ -27,6 +27,7 @@ public class ControllerSeleccionarTema {
         
         vistaTema.iniciarComponentesTema();
         vistaTema.configurarVistaTema();
+        modelo.getRonda().setNumeroPartidas(5);
         
         agregarControllers();
     }
@@ -68,6 +69,7 @@ public class ControllerSeleccionarTema {
                     vistaTema.agregarLblIniciar();             
                     vistaTema.addLblIniciarMouseListener(this);
                     vistaTema.eliminarLblIngresarNombre();
+                    modelo.getRonda().setTemaRonda("Animales");
                 }else{
                     vistaTema.agregarLblIngresarNombre();
                     vistaTema.eliminarLblIniciar();
@@ -86,7 +88,8 @@ public class ControllerSeleccionarTema {
                 if(!"".equals(vistaTema.getNombre())){
                     vistaTema.agregarLblIniciar();
                     vistaTema.addLblIniciarMouseListener(this);
-                    vistaTema.eliminarLblIngresarNombre();             
+                    vistaTema.eliminarLblIngresarNombre();
+                    modelo.getRonda().setTemaRonda("Colores");
                 }else{
                     vistaTema.agregarLblIngresarNombre();
                     vistaTema.eliminarLblIniciar();
@@ -106,6 +109,8 @@ public class ControllerSeleccionarTema {
                     vistaTema.agregarLblIniciar();
                     vistaTema.addLblIniciarMouseListener(this);
                     vistaTema.eliminarLblIngresarNombre();
+                    modelo.getRonda().setTemaRonda("Frutas");
+                    
                 }else{
                     vistaTema.agregarLblIngresarNombre();
                     vistaTema.eliminarLblIniciar();
@@ -116,8 +121,10 @@ public class ControllerSeleccionarTema {
                     vistaTema.eliminarLblIniciar();
                 }else{
                     vistaTema.dispose();
+                    modelo.getRonda().seleccionPalabra();
+                    modelo.getJugador().setNombre(vistaTema.getNombre());
                     VistaAhorcado vistaAhorcado = new VistaAhorcado();
-                    ControllerAhorcado controllerTema = new ControllerAhorcado(modelo,vistaAhorcado);
+                    ControllerAhorcado controllerAhorcado = new ControllerAhorcado(modelo,vistaAhorcado);
                 }
                 
             }else if(event.getSource() == vistaTema.getLblVolver()){

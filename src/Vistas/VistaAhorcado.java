@@ -211,6 +211,7 @@ public class VistaAhorcado extends JFrame{
         for(int i = 0; i<letras.length() ; i++){
             if(letra == letras.charAt(i)){
                 lblLetras[i].setIcon(imagenesLetrasInactivas[i]);
+                lblLetras[i].setCursor(null);
             }
         }
     }
@@ -232,6 +233,7 @@ public class VistaAhorcado extends JFrame{
     
     public void agregarLetraSeleccionada(int posicion, int sizePalabra, JLabel letraSeleccionada){
         int posicionInicial = 0;
+        
         ponerLetraCorrecta(saberLetraPresionada(letraSeleccionada));
         switch (sizePalabra) {
             case 4 -> posicionInicial = 523;
@@ -241,11 +243,17 @@ public class VistaAhorcado extends JFrame{
             default -> {
             }
         }
-        for(int i = 1; i<posicion + 1;i++){
+        if(posicion == -1){
+            System.out.println("Ignora la letra");
+        }else{
+            for(int i = 1; i<posicion + 1;i++){
             if(i == posicion){
-                letraSeleccionada.setBounds(posicionInicial, 126, 73, 73);
+                JLabel nuevaLetraSeleccion = new JLabel(letraSeleccionada.getIcon());
+                nuevaLetraSeleccion.setBounds(posicionInicial, 126, 73, 73);
+                jpContenidoGeneral.add(nuevaLetraSeleccion,10,10);
             }
             posicionInicial = posicionInicial + 83;
+            }
         }
     }
     
@@ -582,7 +590,15 @@ public class VistaAhorcado extends JFrame{
     }
     
     public void setNombre(String nuevoNombre){
-        lblNombre.setText(nuevoNombre.substring(0,11));
+        if(nuevoNombre.length() > 10){
+            lblNombre.setText(nuevoNombre.substring(0,11));
+        }else{
+            lblNombre.setText(nuevoNombre);
+        }
+    }
+    
+    public void setIntentos(int numeroIntentos){
+        lblIntentos.setText(String.valueOf(numeroIntentos));
     }
      
  

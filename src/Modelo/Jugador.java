@@ -9,66 +9,51 @@ package Modelo;
  * @author RYZEN
  */
 public class Jugador {
-    //private Ronda frases;
     
-    private String frase, clave, errores;
-    
-    private int conteoErrores, numeroIntentos;
-    
-    private boolean fallo, ganar;
-    
-    
+    private String nombre;
+    private Ronda frases;
+
+    private String frase, errores;
+    private String clave;
+    private int conteoErrores;
+    private int numeroIntentos;
+    private int porcentaje;
+    public boolean fallo, ganar;
+
+
     public Jugador() {
-        //frases = new Ronda();
-        
+        frases = new Ronda();
+        numeroIntentos = 10;
+        clave = "";
+
     }
-    
-    
-    
+
+
+
     public String dibujarFrase(){
         //Inicializacion delas variables de la ronda.
-        clave = "";  
         //Obtener frase
-        //frase = frases.getFrase();        
+        frase = "manzana";
         errores = "Letras Erroneas: ";
         conteoErrores = 0;
-        numeroIntentos = 10;        
         //Crear clave
-        
-        for(int i=0; i < frase.length(); i++){ 
-        if(frase.charAt(i) == ' '){
-            clave += frase.charAt(i);
-        } else{
-            clave += "-";
-        }
-    }
-        return clave;
-    }
-    
-    public String validar(char letra) {
-        fallo = false;
-        int index = frase.indexOf(letra);
-        if(index != -1){
-            while(index > -1){
-                reemplazarLetra(index, letra);
-                index = frase.indexOf(index + 1, letra);
-                
+
+        for(int i=0; i < frase.length(); i++){
+            if(frase.charAt(i) == ' '){
+                clave += frase.charAt(i);
+            } else{
+                clave += "-";
             }
-        } else { 
-            fallo = true;
-            conteoErrores++;
-            numeroIntentos--;
-            errores += letra + " ";
         }
         return clave;
     }
 
-    private void reemplazarLetra(int index, char letra) {
+    public void reemplazarLetra(int index, char letra) {
         char[] arrayClave = clave.toCharArray();
         arrayClave[index] = letra;
         clave = String.copyValueOf(arrayClave);
     }
-    
+
     public boolean ganador(){
         if(clave.indexOf('-') == -1) {
             ganar = true;
@@ -77,7 +62,11 @@ public class Jugador {
         }
         return ganar;
     }
-    
+
+    public void porcentaje(){
+        porcentaje = conteoErrores * 10;
+    }
+
     public String getClave() {
         return clave;
     }
@@ -89,6 +78,10 @@ public class Jugador {
     public int getConteoErrores() {
         return conteoErrores;
     }
+    
+    public void sumarConteoErrores() {
+        conteoErrores++;
+    }
 
     public String getFrase() {
         return frase;
@@ -97,4 +90,28 @@ public class Jugador {
     public boolean isFallo() {
         return fallo;
     }
+
+    public int getPorcentaje() {
+        return porcentaje;
+    }
+    
+    public void setNombre(String nombreNuevo){
+        nombre = nombreNuevo;
+    }
+    
+    public String getNombre(){
+        return nombre;
+    }
+
+    public int getNumeroIntentos() {
+        return numeroIntentos;
+    }
+
+    public void restarNumeroIntentos() {
+        numeroIntentos--;
+    }
+    
+    
+    
+    
 }
