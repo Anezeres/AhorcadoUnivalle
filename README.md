@@ -24,6 +24,17 @@ La aplicación a desarrollar deberá contar con las mismas funcionalidades de la
 - Jugar
   
   
+## Funcionalidades
+
+:heavy_check_mark: `Funcionalidad 1:` El usuario puede escoger una categoria entre Animales, Colores y Frutas.
+
+:heavy_check_mark: `Funcionalidad 2:` Tiene ventanas asignadas al funcionamiento del juego y a los beneficios del mismo.
+
+:heavy_check_mark: `Funcionalidad 3:` El usuario puede ingresar su nombre y puede jugar correctamente.
+
+:heavy_check_mark: `Funcionalidad 4:` Puede jugar cuantas veces quiera y al final muestra las estadisticas obtenidas.
+  
+  
 ## Herramientas usadas utilizadas
 
 <a href="" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/>
