@@ -28,4 +28,7 @@ La aplicación a desarrollar deberá contar con las mismas funcionalidades de la
 
 <a href="" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/>
   
+ 
+## Documento escrito
   
+https://docs.google.com/document/d/1eQgSzWh9EPXeOD6aDy6NE6TMValzVR9YqXx1vUa8MkA/edit?usp=sharing
