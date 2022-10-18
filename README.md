@@ -1,6 +1,6 @@
 ### Autores
 
-- [Julian Alexander Alvarez](#descrição-do-projeto)
+- [Julian Alexander Alvarez]
 
 - [Funcionalidades](#funcionalidades)
 
