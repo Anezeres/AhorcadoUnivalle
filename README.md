@@ -5,7 +5,7 @@
 - Sebastian Cespedes
 
 
-## Descrição do projeto 
+## Descripción del Proyecto 
 
 <p align="justify">
 El departamento de educación y aprendizaje de Univalle, requiere construir un software que permita
